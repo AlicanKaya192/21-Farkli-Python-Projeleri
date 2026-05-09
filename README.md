@@ -37,7 +37,7 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 |:-:|-----------|----------|------------------------|:-----:|
 | 1 | [**Web Sitelerinden Veri Çekme**](./%231-Web-Sitelerinden-Veri-Cekme) | Web scraping teknikleriyle sitelerden veri toplama | `requests`, `beautifulsoup4` | ✅ |
 | 2 | [**Dijital Masaüstü Saati**](./%232-Dijital-Masaüstü-Saati) | Tkinter ile canlı güncellenen masaüstü saat uygulaması | `tkinter`, `time` | ✅ |
-| 3 | [**QR Kod**](./%233-QR-Kod) | QR kod oluşturma ve okuma uygulaması | `tkinter` | 🔄 |
+| 3 | [**QR Kod**](./%233-QR-Kod) | QR kod oluşturma ve SVG olarak kaydetme uygulaması | `tkinter`, `pyqrcode` | ✅ |
 | 4 | **Sesli Kitap Oluşturucu** | — | — | 📋 |
 | 5 | **Yüz Algılama Uygulaması** | — | — | 📋 |
 | 6 | **İnstagram Bot Yapımı** | — | — | 📋 |
@@ -99,9 +99,19 @@ Tkinter kütüphanesi ile oluşturulmuş, canlı güncellenen dijital saat uygul
 
 ---
 
-### 📂 Proje #3 — QR Kod *(Devam Ediyor)*
+### 📂 Proje #3 — QR Kod
 
-QR kod oluşturma ve okuma uygulaması geliştirme aşamasında.
+Tkinter ve PyQRCode kütüphaneleri kullanılarak geliştirilmiş, metin veya bağlantıları (URL) QR koda dönüştüren masaüstü uygulaması:
+
+| Dosya | Açıklama |
+|-------|----------|
+| `3.1_qr_kod.py` | Girilen URL'yi QR koda çevirip istenilen konuma SVG formatında kaydeden uygulama |
+
+**Öğrenilen Konular:**
+- `pyqrcode` ile metin verisinden QR kod (Karekod) oluşturma ve SVG formatında ölçekli (scale) dışa aktarma
+- `tkinter.filedialog.asksaveasfilename()` ile kullanıcının dosya kaydetme yeri ve ismini seçebileceği işletim sistemi diyalog penceresini kullanma
+- Tkinter GUI üzerinde `Entry` (girdi alanı) verisini `.get()` metoduyla çekip işlem yapma
+- İşlem sonucuna göre GUI üzerindeki etiket (`Label`) metnini `.config()` metodu ile dinamik olarak güncelleme
 
 ---
 
@@ -156,6 +166,7 @@ python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 | `beautifulsoup4` | HTML/XML ayrıştırma | #1 |
 | `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3 |
 | `time` | Tarih/saat işlemleri (built-in) | #2 |
+| `pyqrcode` | QR kod oluşturma ve dışa aktarma | #3 |
 
 ---
 
@@ -173,7 +184,7 @@ python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 │   └── 2.1_dijital_saat.py                     # Dijital saat uygulaması
 │
 ├── 📂 #3-QR-Kod/
-│   └── 3.1_qr_kod.py                          # QR kod uygulaması (devam ediyor)
+│   └── 3.1_qr_kod.py                          # QR kod uygulaması
 │
 ├── .github/
 │   └── workflows/
