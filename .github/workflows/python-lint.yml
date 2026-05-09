@@ -1,0 +1,49 @@
+# =============================================================================
+# GitHub Actions - Python Kod Kalite Kontrolü
+# =============================================================================
+# Bu workflow, her push ve pull request'te otomatik olarak çalışır.
+# Python dosyalarını flake8 ile lint eder ve syntax hatalarını kontrol eder.
+# =============================================================================
+
+name: Python Lint & Syntax Check
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  lint:
+    name: 🔍 Kod Kalite Kontrolü
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+      # 1. Repoyu checkout et
+      - name: 📥 Repoyu İndir
+        uses: actions/checkout@v4
+
+      # 2. Python kurulumu
+      - name: 🐍 Python ${{ matrix.python-version }} Kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # 3. Bağımlılıkları yükle
+      - name: 📦 Bağımlılıkları Yükle
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      # 4. Flake8 ile lint kontrolü
+      - name: 🔎 Flake8 Lint Kontrolü
+        run: |
+          # Syntax hataları ve tanımsız değişkenleri kontrol et (kritik hatalar)
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          # Genel kod kalitesi kontrolü (uyarı seviyesinde)
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics

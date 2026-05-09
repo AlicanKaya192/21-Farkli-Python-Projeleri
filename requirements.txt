@@ -1,0 +1,13 @@
+# =============================================================================
+# 21 Farklı Python Projesi - Gerekli Kütüphaneler
+# =============================================================================
+# Kurulum: pip install -r requirements.txt
+# =============================================================================
+
+# --- Proje #1: Web Sitelerinden Veri Çekme ---
+requests>=2.31.0          # HTTP istekleri göndermek için
+beautifulsoup4>=4.12.0    # HTML/XML ayrıştırma (parsing) için
+
+# --- Proje #3: QR Kod ---
+qrcode>=7.4.0             # QR kod oluşturma
+Pillow>=10.0.0            # Görüntü işleme (QR kod kaydetme için)
