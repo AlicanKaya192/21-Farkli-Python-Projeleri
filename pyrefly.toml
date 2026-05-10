@@ -1,0 +1,3 @@
+# Pyrefly'in Python yorumlayicisini bulmasini saglar
+# Windows'ta "py", Linux/Mac'te "python3" kullanilir
+fallback-python-interpreter-name = "py"

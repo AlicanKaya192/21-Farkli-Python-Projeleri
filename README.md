@@ -27,7 +27,7 @@
 
 Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluşturulmuş **21 farklı projeyi** barındırmaktadır. Her proje, farklı bir konuyu ve kütüphaneyi ele alarak Python ekosistemini keşfetmenizi sağlar.
 
-> **Not:** Projeler sıralı olarak numaralandırılmıştır. Temel konulardan başlayıp ileri seviye uygulamalara doğru ilerler.
+> **Not:** Projeler sıralı olarak numaralandırılmıştır. Temel konulardan başlayıp ileri seviye uygulamalara doğru ilerler. Ayrıca tamamlanan her proje klasöründe kodun işleyişini adım adım anlatan etkileşimli **Jupyter Notebook (`.ipynb`)** eğitim dosyaları yer almaktadır.
 
 ---
 
@@ -38,7 +38,7 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 1 | [**Web Sitelerinden Veri Çekme**](./%231-Web-Sitelerinden-Veri-Cekme) | Web scraping teknikleriyle sitelerden veri toplama | `requests`, `beautifulsoup4` | ✅ |
 | 2 | [**Dijital Masaüstü Saati**](./%232-Dijital-Masaüstü-Saati) | Tkinter ile canlı güncellenen masaüstü saat uygulaması | `tkinter`, `time` | ✅ |
 | 3 | [**QR Kod**](./%233-QR-Kod) | QR kod oluşturma ve SVG olarak kaydetme uygulaması | `tkinter`, `pyqrcode` | ✅ |
-| 4 | **Sesli Kitap Oluşturucu** | — | — | 📋 |
+| 4 | [**Sesli Kitap Okuyucu**](./%234-Sesli-PDF-Okuyucu) | PDF içindeki metni okuyan uygulama | `tkinter`, `PyPDF2`, `gTTS` | ✅ |
 | 5 | **Yüz Algılama Uygulaması** | — | — | 📋 |
 | 6 | **İnstagram Bot Yapımı** | — | — | 📋 |
 | 7 | **İnstagram Analiz Uygulaması** | — | — | 📋 |
@@ -115,6 +115,22 @@ Tkinter ve PyQRCode kütüphaneleri kullanılarak geliştirilmiş, metin veya ba
 
 ---
 
+### 📂 Proje #4 — Sesli Kitap Okuyucu
+
+Seçilen bir PDF dosyasındaki metinleri ayıklayıp bu metinleri gerçeğe yakın bir sese dönüştüren ve oynatan uygulama:
+
+| Dosya | Açıklama |
+|-------|----------|
+| `4.1_sesli_pdf.py` | Seçilen PDF dosyasını okuyan ve MP3 formatında çalan uygulama |
+
+**Öğrenilen Konular:**
+- `PyPDF2` ile PDF dosyalarından metin ayıklama (`extract_text`)
+- `gTTS` (Google Text-to-Speech) ile metni sese dönüştürme ve kaydetme
+- `os.startfile()` ile sistemin yerleşik medya oynatıcısını başlatma
+- `tkinter.filedialog.askopenfilename()` ile dosya seçme işlemleri
+
+---
+
 ## ⚙️ Kurulum
 
 ### Gereksinimler
@@ -167,6 +183,8 @@ python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 | `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3 |
 | `time` | Tarih/saat işlemleri (built-in) | #2 |
 | `pyqrcode` | QR kod oluşturma ve dışa aktarma | #3 |
+| `PyPDF2` | PDF okuma ve metin çıkarma | #4 |
+| `gTTS` | Metni sese dönüştürme (Google TTS) | #4 |
 
 ---
 
@@ -185,6 +203,9 @@ python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 │
 ├── 📂 #3-QR-Kod/
 │   └── 3.1_qr_kod.py                          # QR kod uygulaması
+│
+├── 📂 #4-Sesli-PDF-Okuyucu/
+│   └── 4.1_sesli_pdf.py                       # Sesli PDF okuyucu kodu
 │
 ├── .github/
 │   └── workflows/
