@@ -40,8 +40,8 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 3 | [**QR Kod**](./%233-QR-Kod) | QR kod oluşturma ve SVG olarak kaydetme uygulaması | `tkinter`, `pyqrcode` | ✅ |
 | 4 | [**Sesli Kitap Okuyucu**](./%234-Sesli-PDF-Okuyucu) | PDF içindeki metni okuyan uygulama | `tkinter`, `PyPDF2`, `gTTS` | ✅ |
 | 5 | [**Yüz Algılama Uygulaması**](./%235-Yüz-Algılama-Uygulaması) | OpenCV ve Haar Cascade ile resimlerde yüz tespiti | `opencv-python`, `Pillow`, `numpy`, `tkinter` | ✅ |
-| 6 | **İnstagram Bot Yapımı** | — | — | 📋 |
-| 7 | **İnstagram Analiz Uygulaması** | — | — | 📋 |
+| 6 | [**Instagram Bot Yapımı**](./%236-Instagram-Bot-Yapimi) | Instaloader ile profil gönderilerini indiren GUI botu | `instaloader`, `tkinter` | ✅ |
+| 7 | [**Instagram Analiz Uygulaması**](./%237-Instagram-Analiz-Uygulaması) | Instagram profil analiz uygulaması | — | 🔄 |
 | 8 | **Link Kısaltma Uygulaması** | — | — | 📋 |
 | 9 | **Bahis Analiz Uygulaması** | — | — | 📋 |
 | 10 | **İnstagram Geri Takip Etmeyenler Uygulaması** | — | — | 📋 |
@@ -156,6 +156,23 @@ OpenCV ve makine öğrenimi tabanlı Haar Cascade sınıflandırıcıları kulla
 
 ---
 
+### 📂 Proje #6 — Instagram Bot Yapımı
+
+Instaloader ve Tkinter kütüphaneleri kullanılarak geliştirilmiş, belirtilen bir Instagram hesabındaki tüm gönderileri otomatik olarak indiren masaüstü uygulaması:
+
+| Dosya | Açıklama |
+|-------|----------|
+| `insta.py` | Gönderileri indiren Tkinter tabanlı uygulama |
+| `insta_Aciklamalari.ipynb` | Instaloader kullanımı ve arayüz entegrasyonunu anlatan eğitim dosyası |
+
+**Öğrenilen Konular:**
+- `instaloader` ile Instagram'a giriş yapma ve profil verilerini çekme
+- Hedef profilin gönderilerini (`get_posts`) bir döngü ile klasörlere kaydetme
+- `try-except` blokları ile hataları (2FA, gizli profil vb.) yakalama ve yönetme
+- Tkinter'da şifre alanlarını gizleme (`show="*"`) ve tablo (`Frame`) oluşturma
+
+---
+
 ## ⚙️ Kurulum
 
 ### Gereksinimler
@@ -214,6 +231,7 @@ python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 | `opencv-python` | Görüntü işleme ve yüz algılama | #5 |
 | `numpy` | Çok boyutlu dizi ve matris işlemleri | #5 |
 | `Pillow` | Görüntü işleme (Tkinter entegrasyonu) | #3, #5 |
+| `instaloader` | Instagram hesaplarından veri çekme | #6 |
 
 ---
 
@@ -246,6 +264,13 @@ python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 │   ├── yuz_algilama.py                         # Yüz algılama kodu
 │   ├── yuz_algilama_Aciklamalari.ipynb         # Notebook eğitim materyali
 │   └── face_detector.xml                       # Haar Cascade modeli
+│
+├── 📂 #6-Instagram-Bot-Yapimi/
+│   ├── insta.py                                # Gönderi indirme botu kodu
+│   └── insta_Aciklamalari.ipynb                # Notebook eğitim materyali
+│
+├── 📂 #7-Instagram-Analiz-Uygulaması/
+│   └── insta_analiz.py                         # Instagram analiz kodu (Yapım aşamasında)
 │
 ├── .github/
 │   └── workflows/

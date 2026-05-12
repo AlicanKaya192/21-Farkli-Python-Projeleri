@@ -19,3 +19,6 @@ gTTS>=2.3.0               # Metni sese dönüştürmek için
 # --- Proje #5: Yüz Algılama Uygulaması ---
 opencv-python>=4.8.0      # Görüntü işleme ve yüz algılama (Haar Cascade) için
 numpy>=1.24.0             # Görsel verilerini matris olarak işlemek için
+
+# --- Proje #6: Instagram Bot Yapımı ---
+instaloader>=4.10.0       # Instagram verilerini çekmek için
