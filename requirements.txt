@@ -20,5 +20,9 @@ gTTS>=2.3.0               # Metni sese dönüştürmek için
 opencv-python>=4.8.0      # Görüntü işleme ve yüz algılama (Haar Cascade) için
 numpy>=1.24.0             # Görsel verilerini matris olarak işlemek için
 
-# --- Proje #6: Instagram Bot Yapımı ---
+# --- Proje #6 ve #7: Instagram Botu ve Analiz Uygulaması ---
 instaloader>=4.10.0       # Instagram verilerini çekmek için
+
+# --- Proje #8: Link Kısaltma Uygulaması ---
+# requests>=2.31.0          # Proje #1'de eklendi
+pyperclip>=1.8.2          # Kısaltılan linki panoya kopyalamak için

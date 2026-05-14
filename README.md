@@ -41,8 +41,8 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 4 | [**Sesli Kitap Okuyucu**](./%234-Sesli-PDF-Okuyucu) | PDF içindeki metni okuyan uygulama | `tkinter`, `PyPDF2`, `gTTS` | ✅ |
 | 5 | [**Yüz Algılama Uygulaması**](./%235-Yüz-Algılama-Uygulaması) | OpenCV ve Haar Cascade ile resimlerde yüz tespiti | `opencv-python`, `Pillow`, `numpy`, `tkinter` | ✅ |
 | 6 | [**Instagram Bot Yapımı**](./%236-Instagram-Bot-Yapimi) | Instaloader ile profil gönderilerini indiren GUI botu | `instaloader`, `tkinter` | ✅ |
-| 7 | [**Instagram Analiz Uygulaması**](./%237-Instagram-Analiz-Uygulaması) | Instagram profil analiz uygulaması | — | 🔄 |
-| 8 | **Link Kısaltma Uygulaması** | — | — | 📋 |
+| 7 | [**Instagram Analiz Uygulaması**](./%237-Instagram-Analiz-Uygulaması) | Instagram profil istatistiklerini gösteren GUI uygulaması | `instaloader`, `tkinter` | ✅ |
+| 8 | [**Link Kısaltma Uygulaması**](./%238-Link-Kısaltma-Uygulaması) | TinyURL API ile uzun linkleri kısaltan ve kopyalayan araç | `requests`, `pyperclip`, `tkinter` | ✅ |
 | 9 | **Bahis Analiz Uygulaması** | — | — | 📋 |
 | 10 | **İnstagram Geri Takip Etmeyenler Uygulaması** | — | — | 📋 |
 | 11 | **Stok Takip Uygulaması** | — | — | 📋 |
@@ -221,9 +221,9 @@ python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 
 | Kütüphane | Açıklama | Projeler |
 |-----------|----------|----------|
-| `requests` | HTTP istekleri göndermek için | #1 |
+| `requests` | HTTP istekleri göndermek için | #1, #8 |
 | `beautifulsoup4` | HTML/XML ayrıştırma | #1 |
-| `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3, #4, #5 |
+| `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3, #4, #5, #6, #7, #8 |
 | `time` | Tarih/saat işlemleri (built-in) | #2 |
 | `pyqrcode` | QR kod oluşturma ve dışa aktarma | #3 |
 | `PyPDF2` | PDF okuma ve metin çıkarma | #4 |
@@ -231,7 +231,8 @@ python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 | `opencv-python` | Görüntü işleme ve yüz algılama | #5 |
 | `numpy` | Çok boyutlu dizi ve matris işlemleri | #5 |
 | `Pillow` | Görüntü işleme (Tkinter entegrasyonu) | #3, #5 |
-| `instaloader` | Instagram hesaplarından veri çekme | #6 |
+| `instaloader` | Instagram hesaplarından veri çekme | #6, #7 |
+| `pyperclip` | Panoya (clipboard) metin kopyalama | #8 |
 
 ---
 
@@ -270,7 +271,12 @@ python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 │   └── insta_Aciklamalari.ipynb                # Notebook eğitim materyali
 │
 ├── 📂 #7-Instagram-Analiz-Uygulaması/
-│   └── insta_analiz.py                         # Instagram analiz kodu (Yapım aşamasında)
+│   ├── insta_analiz.py                         # Instagram analiz kodu
+│   └── insta_analiz_Aciklamalari.ipynb         # Notebook eğitim materyali
+│
+├── 📂 #8-Link-Kısaltma-Uygulaması/
+│   ├── link_kisaltma.py                        # Link kısaltma kodu
+│   └── link_kisaltma_Aciklamalari.ipynb        # Notebook eğitim materyali
 │
 ├── .github/
 │   └── workflows/
