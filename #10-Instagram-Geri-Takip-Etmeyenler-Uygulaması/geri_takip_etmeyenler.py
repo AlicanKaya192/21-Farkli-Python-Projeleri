@@ -86,7 +86,7 @@ def show_followers(file_paths):
     """
     Belirtilen HTML dosyalarını okuyarak içindeki takipçi isimlerini BeautifulSoup ile ayıklar.
     """
-    global followers_list, active_list
+    global active_list
     followers_list.clear()
     progress_label.config(text="Takipçiler yükleniyor...")
     
@@ -134,7 +134,7 @@ def find_non_followers():
     following.html (takip edilenler) dosyasını okur ve takipçiler listesinde (followers_list)
     olmayan kişileri belirleyerek 'Geri Takip Etmeyenler' listesini oluşturur.
     """
-    global followers_list, active_list
+    global active_list
     progress_label.config(text="Takip etmeyenler bulunuyor...")
     
     # script_dir üzerinden following.html dosyasını arar
