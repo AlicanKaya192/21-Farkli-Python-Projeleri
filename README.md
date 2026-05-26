@@ -35,15 +35,15 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 
 | # | Proje Adı | Açıklama | Kullanılan Kütüphaneler | Durum |
 |:-:|-----------|----------|------------------------|:-----:|
-| 1 | [**Web Sitelerinden Veri Çekme**](./%231-Web-Sitelerinden-Veri-Cekme) | Web scraping teknikleriyle sitelerden veri toplama | `requests`, `beautifulsoup4` | ✅ |
-| 2 | [**Dijital Masaüstü Saati**](./%232-Dijital-Masaüstü-Saati) | Tkinter ile canlı güncellenen masaüstü saat uygulaması | `tkinter`, `time` | ✅ |
-| 3 | [**QR Kod**](./%233-QR-Kod) | QR kod oluşturma ve SVG olarak kaydetme uygulaması | `tkinter`, `pyqrcode` | ✅ |
-| 4 | [**Sesli Kitap Okuyucu**](./%234-Sesli-PDF-Okuyucu) | PDF içindeki metni okuyan uygulama | `tkinter`, `PyPDF2`, `gTTS` | ✅ |
-| 5 | [**Yüz Algılama Uygulaması**](./%235-Yüz-Algılama-Uygulaması) | OpenCV ve Haar Cascade ile resimlerde yüz tespiti | `opencv-python`, `Pillow`, `numpy`, `tkinter` | ✅ |
-| 6 | [**Instagram Bot Yapımı**](./%236-Instagram-Bot-Yapimi) | Instaloader ile profil gönderilerini indiren GUI botu | `instaloader`, `tkinter` | ✅ |
-| 7 | [**Instagram Analiz Uygulaması**](./%237-Instagram-Analiz-Uygulaması) | Instagram profil istatistiklerini gösteren GUI uygulaması | `instaloader`, `tkinter` | ✅ |
-| 8 | [**Link Kısaltma Uygulaması**](./%238-Link-Kısaltma-Uygulaması) | TinyURL API ile uzun linkleri kısaltan ve kopyalayan araç | `requests`, `pyperclip`, `tkinter` | ✅ |
-| 9 | [**Bahis Analiz Uygulaması**](./%239-Bahis-Analiz-Uygulaması) | Sporx üzerinden form decay ve Poisson modelleriyle Üst/Alt tahmini yapan GUI analiz aracı | `requests`, `beautifulsoup4`, `tkinter` | ✅ |
+| 1 | [**Web Sitelerinden Veri Çekme**](./%2301-Web-Sitelerinden-Veri-Cekme) | Web scraping teknikleriyle sitelerden veri toplama | `requests`, `beautifulsoup4` | ✅ |
+| 2 | [**Dijital Masaüstü Saati**](./%2302-Dijital-Masaüstü-Saati) | Tkinter ile canlı güncellenen masaüstü saat uygulaması | `tkinter`, `time` | ✅ |
+| 3 | [**QR Kod**](./%2303-QR-Kod) | QR kod oluşturma ve SVG olarak kaydetme uygulaması | `tkinter`, `pyqrcode` | ✅ |
+| 4 | [**Sesli Kitap Okuyucu**](./%2304-Sesli-PDF-Okuyucu) | PDF içindeki metni okuyan uygulama | `tkinter`, `PyPDF2`, `gTTS` | ✅ |
+| 5 | [**Yüz Algılama Uygulaması**](./%2305-Yüz-Algılama-Uygulaması) | OpenCV ve Haar Cascade ile resimlerde yüz tespiti | `opencv-python`, `Pillow`, `numpy`, `tkinter` | ✅ |
+| 6 | [**Instagram Bot Yapımı**](./%2306-Instagram-Bot-Yapimi) | Instaloader ile profil gönderilerini indiren GUI botu | `instaloader`, `tkinter` | ✅ |
+| 7 | [**Instagram Analiz Uygulaması**](./%2307-Instagram-Analiz-Uygulaması) | Instagram profil istatistiklerini gösteren GUI uygulaması | `instaloader`, `tkinter` | ✅ |
+| 8 | [**Link Kısaltma Uygulaması**](./%2308-Link-Kısaltma-Uygulaması) | TinyURL API ile uzun linkleri kısaltan ve kopyalayan araç | `requests`, `pyperclip`, `tkinter` | ✅ |
+| 9 | [**Bahis Analiz Uygulaması**](./%2309-Bahis-Analiz-Uygulaması) | Sporx üzerinden form decay ve Poisson modelleriyle Üst/Alt tahmini yapan GUI analiz aracı | `requests`, `beautifulsoup4`, `tkinter` | ✅ |
 | 10 | [**İnstagram Geri Takip Etmeyenler Uygulaması**](./%2310-Instagram-Geri-Takip-Etmeyenler-Uygulaması) | HTML takipçi/takip edilen verilerini karşılaştırarak geri takip etmeyenleri bulan araç | `pandas`, `beautifulsoup4`, `fpdf`, `tkinter` | ✅ |
 | 11 | **Stok Takip Uygulaması** | — | — | 📋 |
 | 12 | **İnstagram Etkileşim Saatini Analiz Eden Uygulama** | — | — | 📋 |
@@ -267,10 +267,10 @@ Her proje kendi klasörü içinde bağımsız olarak çalışabilir:
 
 ```bash
 # Örnek: Web Scraping projesini çalıştırmak
-python "#1-Web-Sitelerinden-Veri-Cekme/1.1_web.py"
+python "#01-Web-Sitelerinden-Veri-Cekme/1.1_web.py"
 
 # Örnek: Dijital Saati çalıştırmak
-python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
+python "#02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 ```
 
 ---
@@ -309,7 +309,7 @@ python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 ```
 21-Farkli-Python-Projeleri/
 │
-├── 📂 #1-Web-Sitelerinden-Veri-Cekme/
+├── 📂 #01-Web-Sitelerinden-Veri-Cekme/
 │   ├── 1.1_web.py                              # Temel web scraping
 │   ├── 1.1_web_Aciklamalari.ipynb              # Notebook eğitim materyali
 │   ├── 1.2_korona_veri.py                      # Covid-19 veri çekme
@@ -317,36 +317,36 @@ python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 │   ├── 1.3_itopya_islemci_fiyat_listesi_cekme.py  # E-ticaret veri çekme
 │   └── 1.3_itopya_islemci_fiyat_listesi_cekme_Aciklamalari.ipynb # Notebook eğitim materyali
 │
-├── 📂 #2-Dijital-Masaüstü-Saati/
+├── 📂 #02-Dijital-Masaüstü-Saati/
 │   ├── 2.1_dijital_saat.py                     # Dijital saat uygulaması
 │   └── Dijital_Saat_Aciklamalari.ipynb         # Notebook eğitim materyali
 │
-├── 📂 #3-QR-Kod/
+├── 📂 #03-QR-Kod/
 │   ├── 3.1_qr_kod.py                           # QR kod uygulaması
 │   └── QR_Kod_Aciklamalari.ipynb               # Notebook eğitim materyali
 │
-├── 📂 #4-Sesli-PDF-Okuyucu/
+├── 📂 #04-Sesli-PDF-Okuyucu/
 │   ├── 4.1_sesli_pdf.py                        # Sesli PDF okuyucu kodu
 │   └── Sesli_PDF_Okuyucu_Aciklamalari.ipynb    # Notebook eğitim materyali
 │
-├── 📂 #5-Yüz-Algılama-Uygulaması/
+├── 📂 #05-Yüz-Algılama-Uygulaması/
 │   ├── yuz_algilama.py                         # Yüz algılama kodu
 │   ├── yuz_algilama_Aciklamalari.ipynb         # Notebook eğitim materyali
 │   └── face_detector.xml                       # Haar Cascade modeli
 │
-├── 📂 #6-Instagram-Bot-Yapimi/
+├── 📂 #06-Instagram-Bot-Yapimi/
 │   ├── insta.py                                # Gönderi indirme botu kodu
 │   └── insta_Aciklamalari.ipynb                # Notebook eğitim materyali
 │
-├── 📂 #7-Instagram-Analiz-Uygulaması/
+├── 📂 #07-Instagram-Analiz-Uygulaması/
 │   ├── insta_analiz.py                         # Instagram analiz kodu
 │   └── insta_analiz_Aciklamalari.ipynb         # Notebook eğitim materyali
 │
-├── 📂 #8-Link-Kısaltma-Uygulaması/
+├── 📂 #08-Link-Kısaltma-Uygulaması/
 │   ├── link_kisaltma.py                        # Link kısaltma kodu
 │   └── link_kisaltma_Aciklamalari.ipynb        # Notebook eğitim materyali
 │
-├── 📂 #9-Bahis-Analiz-Uygulaması/
+├── 📂 #09-Bahis-Analiz-Uygulaması/
 │   ├── bahis_analiz.py                         # Bahis analiz uygulaması kodu
 │   └── bahis_analiz_Aciklamalari.ipynb         # Notebook eğitim materyali
 │
