@@ -43,7 +43,7 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 6 | [**Instagram Bot Yapımı**](./%236-Instagram-Bot-Yapimi) | Instaloader ile profil gönderilerini indiren GUI botu | `instaloader`, `tkinter` | ✅ |
 | 7 | [**Instagram Analiz Uygulaması**](./%237-Instagram-Analiz-Uygulaması) | Instagram profil istatistiklerini gösteren GUI uygulaması | `instaloader`, `tkinter` | ✅ |
 | 8 | [**Link Kısaltma Uygulaması**](./%238-Link-Kısaltma-Uygulaması) | TinyURL API ile uzun linkleri kısaltan ve kopyalayan araç | `requests`, `pyperclip`, `tkinter` | ✅ |
-| 9 | **Bahis Analiz Uygulaması** | — | — | 📋 |
+| 9 | [**Bahis Analiz Uygulaması**](./%239-Bahis-Analiz-Uygulaması) | Sporx üzerinden form decay ve Poisson modelleriyle Üst/Alt tahmini yapan GUI analiz aracı | `requests`, `beautifulsoup4`, `tkinter` | ✅ |
 | 10 | **İnstagram Geri Takip Etmeyenler Uygulaması** | — | — | 📋 |
 | 11 | **Stok Takip Uygulaması** | — | — | 📋 |
 | 12 | **İnstagram Etkileşim Saatini Analiz Eden Uygulama** | — | — | 📋 |
@@ -173,6 +173,55 @@ Instaloader ve Tkinter kütüphaneleri kullanılarak geliştirilmiş, belirtilen
 
 ---
 
+### 📂 Proje #7 — Instagram Analiz Uygulaması
+
+Instaloader ve Tkinter kütüphaneleri kullanılarak geliştirilmiş, belirtilen bir Instagram hesabının profil detaylarını ve istatistiklerini gösteren masaüstü uygulaması:
+
+| Dosya | Açıklama |
+|-------|----------|
+| `insta_analiz.py` | Instagram profil analizlerini sunan Tkinter tabanlı uygulama |
+| `insta_analiz_Aciklamalari.ipynb` | Profil istatistikleri ve arayüz yapısını anlatan eğitim dosyası |
+
+**Öğrenilen Konular:**
+- Profil takipçi sayısı, takip edilenler, biyografi ve profil fotoğrafı bilgilerini çekme
+- Profil verilerini arayüzde dinamik olarak sergileme
+- Hata yakalama ve kullanıcıyı hata diyaloglarıyla bilgilendirme
+
+---
+
+### 📂 Proje #8 — Link Kısaltma Uygulaması
+
+TinyURL API'si ve Tkinter kullanılarak geliştirilmiş, uzun web adreslerini saniyeler içinde kısaltan ve tek tıkla panoya kopyalayan masaüstü uygulaması:
+
+| Dosya | Açıklama |
+|-------|----------|
+| `link_kisaltma.py` | TinyURL API'si ile çalışan link kısaltma uygulaması |
+| `link_kisaltma_Aciklamalari.ipynb` | API istekleri ve pano kopyalama mantığını anlatan eğitim dosyası |
+
+**Öğrenilen Konular:**
+- Web API'leri ile GET istekleri göndererek veri alışverişi yapma
+- `pyperclip` kütüphanesi kullanarak metinleri işletim sistemi panosuna (clipboard) kopyalama
+- Buton durumlarını (`state=tk.DISABLED` / `state=tk.NORMAL`) dinamik olarak yönetme
+
+---
+
+### 📂 Proje #9 — Bahis Analiz Uygulaması
+
+Sporx sitesinden takımların fikstür verilerini çekerek, form decay (zaman ağırlıklı ortalama) ve ev/deplasman katsayıları eşliğinde Poisson olasılık dağılımı ile maç gol ve derbi tahminleri yapan masaüstü uygulaması:
+
+| Dosya | Açıklama |
+|-------|----------|
+| `bahis_analiz.py` | Poisson ve zaman ağırlıklı algoritmayla çalışan bahis analiz uygulaması |
+| `bahis_analiz_Aciklamalari.ipynb` | Veri çekme, olasılık hesaplama ve algoritmayı anlatan eğitim dosyası |
+
+**Öğrenilen Konular:**
+- Poisson olasılık dağılımı ($P(k; \lambda)$) ve Alt/Üst 2.5 hesaplamaları
+- Form Decay (zaman ağırlıklı ortalama - $0.85^i$) ve Saha Avantajı katsayıları
+- Türkçe tarih metinlerini ayrıştırıp `datetime.date` nesnesine çevirme ve gün farkı hesaplama
+- Unicode birleştirme karakterleri hatasından (`\u0307`) kaçınarak SEO uyumlu URL üretimi
+
+---
+
 ## ⚙️ Kurulum
 
 ### Gereksinimler
@@ -221,9 +270,9 @@ python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 
 | Kütüphane | Açıklama | Projeler |
 |-----------|----------|----------|
-| `requests` | HTTP istekleri göndermek için | #1, #8 |
-| `beautifulsoup4` | HTML/XML ayrıştırma | #1 |
-| `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3, #4, #5, #6, #7, #8 |
+| `requests` | HTTP istekleri göndermek için | #1, #8, #9 |
+| `beautifulsoup4` | HTML/XML ayrıştırma | #1, #9 |
+| `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3, #4, #5, #6, #7, #8, #9 |
 | `time` | Tarih/saat işlemleri (built-in) | #2 |
 | `pyqrcode` | QR kod oluşturma ve dışa aktarma | #3 |
 | `PyPDF2` | PDF okuma ve metin çıkarma | #4 |
@@ -277,6 +326,11 @@ python "#2-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 ├── 📂 #8-Link-Kısaltma-Uygulaması/
 │   ├── link_kisaltma.py                        # Link kısaltma kodu
 │   └── link_kisaltma_Aciklamalari.ipynb        # Notebook eğitim materyali
+│
+├── 📂 #9-Bahis-Analiz-Uygulaması/
+│   ├── bahis_analiz.py                         # Bahis analiz uygulaması kodu
+│   └── bahis_analiz_Aciklamalari.ipynb         # Notebook eğitim materyali
+│
 │
 ├── .github/
 │   └── workflows/

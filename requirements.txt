@@ -26,3 +26,7 @@ instaloader>=4.10.0       # Instagram verilerini çekmek için
 # --- Proje #8: Link Kısaltma Uygulaması ---
 # requests>=2.31.0          # Proje #1'de eklendi
 pyperclip>=1.8.2          # Kısaltılan linki panoya kopyalamak için
+
+# --- Proje #9: Bahis Analiz Uygulaması ---
+# requests>=2.31.0          # Proje #1'de eklendi
+# beautifulsoup4>=4.12.0    # Proje #1'de eklendi
