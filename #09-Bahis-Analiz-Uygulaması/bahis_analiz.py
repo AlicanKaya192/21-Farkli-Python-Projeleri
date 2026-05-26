@@ -324,40 +324,31 @@ def iki_takimli_analiz():
     takim1_form = "favori" if galibiyet_sayisi_g1 > galibiyet_sayisi_g2 else "normal"
     takim2_form = "favori" if galibiyet_sayisi_g2 > galibiyet_sayisi_g1 else "normal"
     
-    # Her iki takımın son 3 maçtaki gol durumlarını (kendi_golu, rakip_golu) listesi olarak alır
-    takim1_son_3_mac = son_mac_bilgilerini_cek(takim1, 3)
-    takim2_son_3_mac = son_mac_bilgilerini_cek(takim2, 3)
-    
-    # Son 3 maça dair yeterli veri yoksa analiz yapmayı durdurur ve hata verir
-    if len(takim1_son_3_mac) < 3 or len(takim2_son_3_mac) < 3:
-        messagebox.showerror("Hata", "Son 3 maç verisi bulunamadı.")
-        return
-    
-    # Takım 1'in son 3 maçtaki galibiyet, beraberlik ve mağlubiyetlerini hesaplar
-    # Her demet (kendi_golu, rakip_golu, is_home) olduğundan: kendi > rakip = galibiyet
-    takim1_kazanma_sayisi = sum(1 for kendi, rakip, *is_home in takim1_son_3_mac if kendi > rakip)
-    takim1_beraberlik_sayisi = sum(1 for kendi, rakip, *is_home in takim1_son_3_mac if kendi == rakip)
-    takim1_malubiyet_sayisi = sum(1 for kendi, rakip, *is_home in takim1_son_3_mac if kendi < rakip)
-    
-    # Takım 2'nin son 3 maçtaki galibiyet, beraberlik ve mağlubiyetlerini hesaplar
-    takim2_kazanma_sayisi = sum(1 for kendi, rakip, *is_home in takim2_son_3_mac if kendi > rakip)
-    takim2_beraberlik_sayisi = sum(1 for kendi, rakip, *is_home in takim2_son_3_mac if kendi == rakip)
-    takim2_malubiyet_sayisi = sum(1 for kendi, rakip, *is_home in takim2_son_3_mac if kendi < rakip)
-    
-    # Belirtilen maç sayısı kadar olan geçmiş maçlardaki gol bilgilerini çeker (Poisson hesabı için)
+    # Belirtilen maç sayısı kadar olan geçmiş maçlardaki gol bilgilerini çeker (Poisson hesabı ve istatistikler için)
     takim1_tum_mac_gol = son_mac_bilgilerini_cek(takim1, mac_sayisi)
     takim2_tum_mac_gol = son_mac_bilgilerini_cek(takim2, mac_sayisi)
     
     # Belirtilen analiz maç sayısı kadar veri bulunamazsa işlemi sonlandırır
     if len(takim1_tum_mac_gol) < mac_sayisi or len(takim2_tum_mac_gol) < mac_sayisi:
-        messagebox.showerror("Hata", "Gol tahmini yapmak için yeterli veri bulunamadı.")
+        messagebox.showerror("Hata", f"Son {mac_sayisi} maç verisi bulunamadı.")
         return
     
-    # Takım 1'in son 3 maçında attığı toplam golü hesaplar (sadece kendi golleri)
-    takim1_toplam_gol = sum(kendi for kendi, rakip, *is_home in takim1_son_3_mac)
+    # Takım 1'in son N maçtaki galibiyet, beraberlik ve mağlubiyetlerini hesaplar
+    # Her demet (kendi_golu, rakip_golu, is_home) olduğundan: kendi > rakip = galibiyet
+    takim1_kazanma_sayisi = sum(1 for kendi, rakip, *is_home in takim1_tum_mac_gol if kendi > rakip)
+    takim1_beraberlik_sayisi = sum(1 for kendi, rakip, *is_home in takim1_tum_mac_gol if kendi == rakip)
+    takim1_malubiyet_sayisi = sum(1 for kendi, rakip, *is_home in takim1_tum_mac_gol if kendi < rakip)
     
-    # Takım 2'nin son 3 maçında attığı toplam golü hesaplar (sadece kendi golleri)
-    takim2_toplam_gol = sum(kendi for kendi, rakip, *is_home in takim2_son_3_mac)
+    # Takım 2'nin son N maçtaki galibiyet, beraberlik ve mağlubiyetlerini hesaplar
+    takim2_kazanma_sayisi = sum(1 for kendi, rakip, *is_home in takim2_tum_mac_gol if kendi > rakip)
+    takim2_beraberlik_sayisi = sum(1 for kendi, rakip, *is_home in takim2_tum_mac_gol if kendi == rakip)
+    takim2_malubiyet_sayisi = sum(1 for kendi, rakip, *is_home in takim2_tum_mac_gol if kendi < rakip)
+    
+    # Takım 1'in son N maçında attığı toplam golü hesaplar (sadece kendi golleri)
+    takim1_toplam_gol = sum(kendi for kendi, rakip, *is_home in takim1_tum_mac_gol)
+    
+    # Takım 2'nin son N maçında attığı toplam golü hesaplar (sadece kendi golleri)
+    takim2_toplam_gol = sum(kendi for kendi, rakip, *is_home in takim2_tum_mac_gol)
     
     # Poisson dağılımı ile Üst 2.5 gol olasılığını hesaplar (son N maç verileriyle)
     lambda_ev, lambda_dep, ust_2_5 = ust_2_5_olasilik_hesapla(takim1_tum_mac_gol, takim2_tum_mac_gol)
@@ -369,8 +360,8 @@ def iki_takimli_analiz():
     # Sonuç metnini hazırlamaya başlar ve form/galibiyet istatistiklerini ekler
     sonuc = f"{takim1.capitalize()} Takımı Form Durumu: {takim1_form}\n"
     sonuc += f"{takim2.capitalize()} Takımı Form Durumu: {takim2_form}\n\n"
-    sonuc += f"{takim1.capitalize()} Son 3 Maçta:\nKazanma Sayısı: {takim1_kazanma_sayisi}\nBeraberlik Sayısı: {takim1_beraberlik_sayisi}\nMalubiyet Sayısı: {takim1_malubiyet_sayisi}\nAttığı Gol Sayısı: {takim1_toplam_gol}\n\n"
-    sonuc += f"{takim2.capitalize()} Son 3 Maçta:\nKazanma Sayısı: {takim2_kazanma_sayisi}\nBeraberlik Sayısı: {takim2_beraberlik_sayisi}\nMalubiyet Sayısı: {takim2_malubiyet_sayisi}\nAttığı Gol Sayısı: {takim2_toplam_gol}\n\n"
+    sonuc += f"{takim1.capitalize()} Son {mac_sayisi} Maçta:\nKazanma Sayısı: {takim1_kazanma_sayisi}\nBeraberlik Sayısı: {takim1_beraberlik_sayisi}\nMalubiyet Sayısı: {takim1_malubiyet_sayisi}\nAttığı Gol Sayısı: {takim1_toplam_gol}\n\n"
+    sonuc += f"{takim2.capitalize()} Son {mac_sayisi} Maçta:\nKazanma Sayısı: {takim2_kazanma_sayisi}\nBeraberlik Sayısı: {takim2_beraberlik_sayisi}\nMalubiyet Sayısı: {takim2_malubiyet_sayisi}\nAttığı Gol Sayısı: {takim2_toplam_gol}\n\n"
     sonuc += f"{takim1.capitalize()} Maç Başına Ort. Gol: {t1_ort:.2f}\n"
     sonuc += f"{takim2.capitalize()} Maç Başına Ort. Gol: {t2_ort:.2f}\n\n"
     sonuc += f"Beklenen Gol (Poisson): {takim1.capitalize()} {lambda_ev:.2f} - {lambda_dep:.2f} {takim2.capitalize()}\n"
