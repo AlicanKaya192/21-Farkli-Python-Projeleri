@@ -37,10 +37,11 @@ openpyxl>=3.1.0           # Pandas Excel yazma motoru
 fpdf>=1.7.2               # Sonuçları PDF formatında raporlamak için
 # beautifulsoup4>=4.12.0    # Proje #1'de eklendi
 
-# --- Proje #21: YouTube Video İndirici ---
-yt-dlp>=2024.3.10          # YouTube videolarını ve seslerini indirmek için
+# --- Proje #14: Basit Keylogger Yapımı (Eğitim Amaçlı) ---
+keyboard>=0.13.5          # Klavye olaylarını dinlemek için
 
 # --- Proje #19: Kripto Botu (Beta) ---
 # requests>=2.31.0          # Proje #1'de eklendi
 
-
+# --- Proje #21: YouTube Video İndirici ---
+yt-dlp>=2024.3.10          # YouTube videolarını ve seslerini indirmek için

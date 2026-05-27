@@ -48,7 +48,7 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 11 | **Stok Takip Uygulaması** | — | — | 📋 |
 | 12 | **İnstagram Etkileşim Saatini Analiz Eden Uygulama** | — | — | 📋 |
 | 13 | **Video Boyutu Hesaplama Uygulaması** | — | — | 📋 |
-| 14 | **Basit Keylogger Yapımı (Eğitim Amaçlı)** | — | — | 📋 |
+| 14 | **Basit Keylogger Yapımı (Eğitim Amaçlı)** | — | — | ✅ |
 | 15 | **İnternetten Veri Çeken Bot Yazımı** | — | — | 📋 |
 | 16 | **İşletme Verilerini Çeken Bot** | — | — | 📋 |
 | 17 | **Görüntülerden Arka Planı Silen Uygulama** | — | — | 📋 |
@@ -239,6 +239,24 @@ Instagram hesabınızın takipçi (`followers.html`) ve takip edilenler (`follow
 
 ---
 
+### 📂 Proje #14 — Basit Keylogger Yapımı (Eğitim Amaçlı)
+
+`keyboard` kütüphanesi kullanılarak geliştirilmiş, basit bir keylogger. Klavye girişlerini metin dosyasına kaydederek temel düzeyde klavye olaylarını dinleme mantığını açıklar.
+
+| Dosya | Açıklama |
+|-------|----------|
+| `keylogger.py` | Klavye olaylarını dinleyerek metin dosyasına kaydeden temel keylogger uygulaması. `on_key_press()` fonksiyonu ile tuş girişlerini okur ve `keyboard.wait()` ile programı aktif tutar. |
+
+**Öğrenilen Konular:**
+- `keyboard` kütüphanesi ile klavye olaylarını dinleme (hooking)
+- `on_press()` callback fonksiyonu ile tuş basımlarını yakalama
+- `keyboard.wait()` ile programı bloklamadan (asenkron) dinleme modunda çalıştırma
+- Temel dosya yazma işlemleri ve özel karakterlerin (space, enter) dosyaya kaydedilmesi
+
+> **⚠️ Yasal Uyarı:** Bu proje yalnızca **eğitim amaçlı** ve **yasal izinler çerçevesinde** kullanılmalıdır. Başkalarının izni olmadan bilgisayar sistemlerine keylogger kurmak ve kullanmak yasa dışıdır ve etik değildir.
+
+---
+
 ### 📂 Proje #19 — Kripto Botu (BETA)
 
 BtcTurk API'si kullanılarak geliştirilmiş, 5 dakikalık periyotlarda fiyat gözlemleyerek otomatik alım-satım yapan ve detaylı log panelleri barındıran masaüstü uygulaması:
@@ -340,6 +358,7 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 | `pyperclip` | Panoya (clipboard) metin kopyalama | #8 |
 | `pandas` | Verileri Excel formatına aktarmak için | #10 |
 | `fpdf` | PDF raporları oluşturmak için | #10 |
+| `keyboard` | Klavye olaylarını dinleme | #14 |
 
 ---
 
@@ -406,7 +425,11 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 ├── 📂 11-Stok-Takip-Uygulaması/
 │   ├── README.md                               # Proje açıklaması
 │   └── stok_takip.py                           # Stok takip uygulaması kodu
-│
+|
+├── 📂 14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)/
+│   ├── README.md                               # Proje açıklaması
+│   └── keylogger.py                            # Keylogger uygulaması kodu
+|
 ├── 📂 19-Kripto-Botu-(Beta)/
 │   ├── README.md                               # Proje açıklaması
 │   ├── app.py                                  # Arayüz ve ana bot döngüsü
