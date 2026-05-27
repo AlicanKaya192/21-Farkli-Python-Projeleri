@@ -20,6 +20,7 @@ import json
 import time
 import threading
 import os
+# pyrefly: ignore [missing-import]
 from btcturk_wrapper import BTCTurk
 
 # -----------------------------------------------------------------------------
@@ -27,7 +28,39 @@ from btcturk_wrapper import BTCTurk
 # -----------------------------------------------------------------------------
 PUBLIC_KEY = "APİ ANAHTARLARINI GİRİN"
 PRIVATE_KEY = "APİ ANAHTARLARINI GİRİN"
-bt = BTCTurk(apiKey=PUBLIC_KEY, apiSecret=PRIVATE_KEY)
+
+# API Anahtarlarının doldurulup doldurulmadığını kontrol edelim
+is_keys_placeholder = (
+    "GİRİN" in PUBLIC_KEY or "APİ" in PUBLIC_KEY or
+    "GİRİN" in PRIVATE_KEY or "APİ" in PRIVATE_KEY or
+    not PUBLIC_KEY.strip() or not PRIVATE_KEY.strip()
+)
+
+if is_keys_placeholder:
+    import sys
+    root_temp = tk.Tk()
+    root_temp.withdraw()
+    messagebox.showerror(
+        "API Anahtarı Eksik",
+        "Lütfen öncelikle app.py içerisindeki PUBLIC_KEY ve PRIVATE_KEY "
+        "değerlerini kendi BtcTurk API anahtarlarınız ile güncelleyin!"
+    )
+    root_temp.destroy()
+    sys.exit(1)
+
+try:
+    bt = BTCTurk(apiKey=PUBLIC_KEY, apiSecret=PRIVATE_KEY)
+except Exception as e:
+    import sys
+    root_temp = tk.Tk()
+    root_temp.withdraw()
+    messagebox.showerror(
+        "API Bağlantı Hatası",
+        f"API Anahtarları başlatılırken hata oluştu:\n{e}\n\n"
+        "Lütfen PUBLIC_KEY ve PRIVATE_KEY değerlerini doğru formatta girdiğinizden emin olun."
+    )
+    root_temp.destroy()
+    sys.exit(1)
 
 # Bot durumunun kaydedileceği yerel dosya
 STATE_FILE = "bot_state.json"

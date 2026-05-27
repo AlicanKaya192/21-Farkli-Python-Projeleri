@@ -28,7 +28,13 @@ class BTCTurk:
         """
         self.apiKey = apiKey
         # BtcTurk API'si Secret Key'i Base64 ile decode edilmiş olarak bekler.
-        self.apiSecret = base64.b64decode(apiSecret)
+        try:
+            self.apiSecret = base64.b64decode(apiSecret)
+        except Exception as e:
+            raise ValueError(
+                "Secret Key (Private Key) geçerli bir Base64 formatı olmalıdır! "
+                "Eğer anahtarları henüz girmediyseniz lütfen girin."
+            ) from e
 
         # Borsadaki tüm çiftlerin kurallarını (hassasiyet, limit vb.) çekip saklıyoruz.
         self.symbols = {}
