@@ -155,7 +155,7 @@ class YouTubeDownloaderApp:
                 self.root.after(0, lambda: self.on_fetch_success(info))
             except Exception as e:
                 # Hata durumunda kullanıcıyı bilgilendir
-                self.root.after(0, lambda: self.on_fetch_error(e))
+                self.root.after(0, lambda err=e: self.on_fetch_error(err))
 
         threading.Thread(target=run, daemon=True).start()
 
@@ -275,7 +275,7 @@ class YouTubeDownloaderApp:
                     ydl.download([self.info_dict['webpage_url']])
                 self.root.after(0, lambda: self.on_download_success(out))
             except Exception as e:
-                self.root.after(0, lambda: self.on_download_error(e))
+                self.root.after(0, lambda err=e: self.on_download_error(err))
 
         threading.Thread(target=run, daemon=True).start()
 
