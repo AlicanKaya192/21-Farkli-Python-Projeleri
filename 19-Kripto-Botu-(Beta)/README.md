@@ -1,5 +1,7 @@
 # 📂 Proje #19 — Kripto Botu (Beta)
 
+![Kripto Botu Arayüzü](./public/Ekran%20görüntüsü%202026-05-27%20192936.png)
+
 Bu proje, **BtcTurk** borsası REST API'si ile entegre çalışan, hem manuel işlemler yapabileceğiniz hem de geliştirdiğimiz **5 dakikalık gözlem ve kâr hedefli otomatik ticaret algoritmasını** koşturabileceğiniz, çok kanallı (Genel/Alım/Satım) log sistemine sahip, asenkron (multi-threaded) bir masaüstü kontrol panelidir.
 
 ---
