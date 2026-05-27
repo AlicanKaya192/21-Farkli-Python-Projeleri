@@ -55,7 +55,7 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 18 | **Driver Bulucu ve Kontrol Edici** | — | — | 📋 |
 | 19 | **Kripto Botu (BETA)** | — | — | 📋 |
 | 20 | **Yapay Zeka Asistan Botu Yazımı ve Mantığı** | — | — | 📋 |
-| 21 | **YouTube Video İndirme Botu (Sınırsız Kullanım)** | — | — | 📋 |
+| 21 | [**YouTube Video İndirici**](./21-Youtube-Video-İndirici) | YouTube videolarını ve seslerini indirme | `yt-dlp`, `pillow`, `requests`, `tkinter` | ✅ |
 
 > **Durum Açıklamaları:** ✅ Tamamlandı · 🔄 Devam Ediyor · 📋 Planlandı
 
@@ -239,6 +239,23 @@ Instagram hesabınızın takipçi (`followers.html`) ve takip edilenler (`follow
 
 ---
 
+### 📂 Proje #21 — YouTube Video İndirici
+
+yt-dlp kütüphanesi kullanılarak geliştirilmiş, belirtilen YouTube linkinden video (MP4) veya ses (MP3) indirebilen, threading altyapısı sayesinde işlem yaparken donmayan masaüstü uygulaması:
+
+| Dosya | Açıklama |
+|-------|----------|
+| `video_indir.py` | Çok iş parçacıklı (threading) ve FFmpeg fallback destekli ana kod |
+| `video_indir_Aciklamalari.ipynb` | Uygulama mantığını adım adım açıklayan eğitim notebook dosyası |
+
+**Öğrenilen Konular:**
+- `yt-dlp` modülü ile video/ses format analizi ve indirme
+- `threading` kullanarak arka plan görevleri koşturma ve GUI donmasını engelleme
+- `root.after` yardımıyla thread-safe olarak grafik arayüz elemanlarını güncelleme
+- FFmpeg eksikliğinde alternatif formatlara (.m4a / best) yumuşak geçiş (fallback) yapma
+
+---
+
 ## ⚙️ Kurulum
 
 ### Gereksinimler
@@ -310,6 +327,7 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 21-Farkli-Python-Projeleri/
 │
 ├── 📂 01-Web-Sitelerinden-Veri-Cekme/
+│   ├── README.md                               # Proje açıklaması
 │   ├── 1.1_web.py                              # Temel web scraping
 │   ├── 1.1_web_Aciklamalari.ipynb              # Notebook eğitim materyali
 │   ├── 1.2_korona_veri.py                      # Covid-19 veri çekme
@@ -318,41 +336,59 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 │   └── 1.3_itopya_islemci_fiyat_listesi_cekme_Aciklamalari.ipynb # Notebook eğitim materyali
 │
 ├── 📂 02-Dijital-Masaüstü-Saati/
+│   ├── README.md                               # Proje açıklaması
 │   ├── 2.1_dijital_saat.py                     # Dijital saat uygulaması
 │   └── Dijital_Saat_Aciklamalari.ipynb         # Notebook eğitim materyali
 │
 ├── 📂 03-QR-Kod/
+│   ├── README.md                               # Proje açıklaması
 │   ├── 3.1_qr_kod.py                           # QR kod uygulaması
 │   └── QR_Kod_Aciklamalari.ipynb               # Notebook eğitim materyali
 │
 ├── 📂 04-Sesli-PDF-Okuyucu/
+│   ├── README.md                               # Proje açıklaması
 │   ├── 4.1_sesli_pdf.py                        # Sesli PDF okuyucu kodu
 │   └── Sesli_PDF_Okuyucu_Aciklamalari.ipynb    # Notebook eğitim materyali
 │
 ├── 📂 05-Yüz-Algılama-Uygulaması/
+│   ├── README.md                               # Proje açıklaması
 │   ├── yuz_algilama.py                         # Yüz algılama kodu
 │   ├── yuz_algilama_Aciklamalari.ipynb         # Notebook eğitim materyali
 │   └── face_detector.xml                       # Haar Cascade modeli
 │
 ├── 📂 06-Instagram-Bot-Yapimi/
+│   ├── README.md                               # Proje açıklaması
 │   ├── insta.py                                # Gönderi indirme botu kodu
 │   └── insta_Aciklamalari.ipynb                # Notebook eğitim materyali
 │
 ├── 📂 07-Instagram-Analiz-Uygulaması/
+│   ├── README.md                               # Proje açıklaması
 │   ├── insta_analiz.py                         # Instagram analiz kodu
 │   └── insta_analiz_Aciklamalari.ipynb         # Notebook eğitim materyali
 │
 ├── 📂 08-Link-Kısaltma-Uygulaması/
+│   ├── README.md                               # Proje açıklaması
 │   ├── link_kisaltma.py                        # Link kısaltma kodu
 │   └── link_kisaltma_Aciklamalari.ipynb        # Notebook eğitim materyali
 │
 ├── 📂 09-Bahis-Analiz-Uygulaması/
+│   ├── README.md                               # Proje açıklaması
 │   ├── bahis_analiz.py                         # Bahis analiz uygulaması kodu
 │   └── bahis_analiz_Aciklamalari.ipynb         # Notebook eğitim materyali
 │
 ├── 📂 10-Instagram-Geri-Takip-Etmeyenler-Uygulaması/
+│   ├── README.md                               # Proje açıklaması
 │   ├── geri_takip_etmeyenler.py                # Geri takip etmeyenleri bulan uygulama kodu
 │   └── geri_takip_etmeyenler_Aciklamalari.ipynb # Notebook eğitim materyali
+│
+├── 📂 11-Stok-Takip-Uygulaması/
+│   ├── README.md                               # Proje açıklaması
+│   └── stok_takip.py                           # Stok takip uygulaması kodu
+│
+├── 📂 21-Youtube-Video-İndirici/
+│   ├── README.md                               # Proje açıklaması
+│   ├── video_indir.py                          # YouTube video indirici kodu
+│   └── video_indir_Aciklamalari.ipynb          # Notebook eğitim materyali
 │
 ├── .github/
 │   └── workflows/
