@@ -40,3 +40,7 @@ fpdf>=1.7.2               # Sonuçları PDF formatında raporlamak için
 # --- Proje #21: YouTube Video İndirici ---
 yt-dlp>=2024.3.10          # YouTube videolarını ve seslerini indirmek için
 
+# --- Proje #19: Kripto Botu (Beta) ---
+# requests>=2.31.0          # Proje #1'de eklendi
+
+

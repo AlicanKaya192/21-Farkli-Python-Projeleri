@@ -53,7 +53,7 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 16 | **İşletme Verilerini Çeken Bot** | — | — | 📋 |
 | 17 | **Görüntülerden Arka Planı Silen Uygulama** | — | — | 📋 |
 | 18 | **Driver Bulucu ve Kontrol Edici** | — | — | 📋 |
-| 19 | **Kripto Botu (BETA)** | — | — | 📋 |
+| 19 | [**Kripto Botu (BETA)**](./19-Kripto-Botu-(Beta)) | BtcTurk API'si ile çalışan, 5 dakikalık periyotlarda fiyat gözlemleyen ve otomatik alım-satım yapan GUI botu | `requests`, `tkinter` | ✅ |
 | 20 | **Yapay Zeka Asistan Botu Yazımı ve Mantığı** | — | — | 📋 |
 | 21 | [**YouTube Video İndirici**](./21-Youtube-Video-İndirici) | YouTube videolarını ve seslerini indirme | `yt-dlp`, `pillow`, `requests`, `tkinter` | ✅ |
 
@@ -239,6 +239,28 @@ Instagram hesabınızın takipçi (`followers.html`) ve takip edilenler (`follow
 
 ---
 
+### 📂 Proje #19 — Kripto Botu (BETA)
+
+BtcTurk API'si kullanılarak geliştirilmiş, 5 dakikalık periyotlarda fiyat gözlemleyerek otomatik alım-satım yapan ve detaylı log panelleri barındıran masaüstü uygulaması:
+
+| Dosya | Açıklama |
+|-------|----------|
+| `app.py` | Tkinter arayüzü, 5 dakikalık gözlem döngüsü ve thread yönetimi içeren ana kod |
+| `bot.py` | API bağlantısını ve anahtar doğrulamasını test eden yardımcı script |
+| `btcturk_wrapper.py` | HMAC-SHA256 Base64 imzalama algoritması ve BtcTurk REST API entegrasyonu |
+| `endpoints.py` | API istekleri için BtcTurk endpoint tanımları ve yetkilendirme grupları |
+| `README.md` | Projenin mimarisini ve kullanım detaylarını içeren alt dokümantasyon |
+| `kripto_bot_Aciklamalari.ipynb` | Projenin çalışmasını, imzalama mantığını ve akış şemasını anlatan eğitim notebook dosyası |
+
+**Öğrenilen Konular:**
+- HMAC-SHA256 ve Base64 algoritmaları ile BtcTurk API için güvenli imza (signature) üretimi
+- BtcTurk REST API ile bakiye sorgulama, fiyat izleme, piyasa/limit emirleri gönderme ve iptal etme
+- Çok iş parçacıklı (`threading`) mimari ile GUI donmasını engelleyen arka plan döngü tasarımı
+- Arayüzde `Treeview` kullanımı ve verilerin (emirler, loglar, bakiyeler) dinamik olarak listelenip sıralanması
+- Sistem loglarını (Sistem, Alım/Satım, Hata) 3 farklı kanalda ayrıştırarak görselleştirme
+
+---
+
 ### 📂 Proje #21 — YouTube Video İndirici
 
 yt-dlp kütüphanesi kullanılarak geliştirilmiş, belirtilen YouTube linkinden video (MP4) veya ses (MP3) indirebilen, threading altyapısı sayesinde işlem yaparken donmayan masaüstü uygulaması:
@@ -384,6 +406,14 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 ├── 📂 11-Stok-Takip-Uygulaması/
 │   ├── README.md                               # Proje açıklaması
 │   └── stok_takip.py                           # Stok takip uygulaması kodu
+│
+├── 📂 19-Kripto-Botu-(Beta)/
+│   ├── README.md                               # Proje açıklaması
+│   ├── app.py                                  # Arayüz ve ana bot döngüsü
+│   ├── bot.py                                  # API bağlantı testi
+│   ├── btcturk_wrapper.py                      # BtcTurk API imzalama ve istek sarmalayıcısı
+│   ├── endpoints.py                            # BtcTurk API endpoint tanımları
+│   └── kripto_bot_Aciklamalari.ipynb           # Notebook eğitim materyali
 │
 ├── 📂 21-Youtube-Video-İndirici/
 │   ├── README.md                               # Proje açıklaması
