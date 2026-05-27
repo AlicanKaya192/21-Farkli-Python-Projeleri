@@ -48,7 +48,7 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 11 | **Stok Takip Uygulaması** | — | — | 📋 |
 | 12 | **İnstagram Etkileşim Saatini Analiz Eden Uygulama** | — | — | 📋 |
 | 13 | **Video Boyutu Hesaplama Uygulaması** | — | — | 📋 |
-| 14 | **Basit Keylogger Yapımı (Eğitim Amaçlı)** | — | — | ✅ |
+| 14 | [**Basit Keylogger Yapımı (Eğitim Amaçlı)**](./14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)) | Klavyede basılan tuşları arka planda kaydederek log.txt dosyasına yazan eğitim amaçlı keylogger aracı | `keyboard` | ✅ |
 | 15 | **İnternetten Veri Çeken Bot Yazımı** | — | — | 📋 |
 | 16 | **İşletme Verilerini Çeken Bot** | — | — | 📋 |
 | 17 | **Görüntülerden Arka Planı Silen Uygulama** | — | — | 📋 |
