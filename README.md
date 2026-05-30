@@ -45,7 +45,7 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 8 | [**Link Kısaltma Uygulaması**](./08-Link-Kısaltma-Uygulaması) | TinyURL API ile uzun linkleri kısaltan ve kopyalayan araç | `requests`, `pyperclip`, `tkinter` | ✅ |
 | 9 | [**Bahis Analiz Uygulaması**](./09-Bahis-Analiz-Uygulaması) | Sporx üzerinden form decay ve Poisson modelleriyle Üst/Alt tahmini yapan GUI analiz aracı | `requests`, `beautifulsoup4`, `tkinter` | ✅ |
 | 10 | [**İnstagram Geri Takip Etmeyenler Uygulaması**](./10-Instagram-Geri-Takip-Etmeyenler-Uygulaması) | HTML takipçi/takip edilen verilerini karşılaştırarak geri takip etmeyenleri bulan araç | `pandas`, `beautifulsoup4`, `fpdf`, `tkinter` | ✅ |
-| 11 | **Stok Takip Uygulaması** | — | — | 📋 |
+| 11 | [**Stok Takip Uygulaması**](./11-Stok-Takip-Uygulaması) | SQLite veritabanı destekli, ürün ekleme, silme, düzeltme ve arama özellikli GUI stok yönetim uygulaması | `sqlite3`, `tkinter` | 🔄 |
 | 12 | **İnstagram Etkileşim Saatini Analiz Eden Uygulama** | — | — | 📋 |
 | 13 | **Video Boyutu Hesaplama Uygulaması** | — | — | 📋 |
 | 14 | [**Basit Keylogger Yapımı (Eğitim Amaçlı)**](./14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)) | Klavyede basılan tuşları arka planda kaydederek log.txt dosyasına yazan eğitim amaçlı keylogger aracı | `keyboard` | ✅ |
@@ -239,6 +239,22 @@ Instagram hesabınızın takipçi (`followers.html`) ve takip edilenler (`follow
 
 ---
 
+### 📂 Proje #11 — Stok Takip Uygulaması
+
+SQLite veritabanı destekli, ürün ekleme, silme, düzeltme ve arama özellikli Tkinter GUI stok yönetim uygulaması:
+
+| Dosya | Açıklama |
+|-------|----------|
+| `stok_takip.py` | SQLite veritabanı kullanarak stok kaydı tutan ve arayüz üzerinden yöneten ana kod |
+
+**Öğrenilen Konular:**
+- SQLite veritabanı bağlantısı (`sqlite3`) ve SQL sorguları (SELECT, INSERT, UPDATE, DELETE)
+- Tkinter `ttk.Treeview` bileşeni ile verilerin tablo halinde listelenmesi ve satır seçimi
+- Olay bağlama (Event Binding) ile dinamik arama ve arayüz etkileşimleri
+- Çok sütunlu veri listeleme ve veri tabanı üzerinde CRUD (Ekleme, Listeleme, Güncelleme, Silme) işlemleri
+
+---
+
 ### 📂 Proje #14 — Basit Keylogger Yapımı (Eğitim Amaçlı)
 
 `keyboard` kütüphanesi kullanılarak geliştirilmiş, basit bir keylogger. Klavye girişlerini metin dosyasına kaydederek temel düzeyde klavye olaylarını dinleme mantığını açıklar.
@@ -346,7 +362,8 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 |-----------|----------|----------|
 | `requests` | HTTP istekleri göndermek için | #1, #8, #9 |
 | `beautifulsoup4` | HTML/XML ayrıştırma | #1, #9, #10 |
-| `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3, #4, #5, #6, #7, #8, #9, #10 |
+| `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3, #4, #5, #6, #7, #8, #9, #10, #11 |
+| `sqlite3` | SQLite veritabanı işlemleri (built-in) | #11 |
 | `time` | Tarih/saat işlemleri (built-in) | #2 |
 | `pyqrcode` | QR kod oluşturma ve dışa aktarma | #3 |
 | `PyPDF2` | PDF okuma ve metin çıkarma | #4 |

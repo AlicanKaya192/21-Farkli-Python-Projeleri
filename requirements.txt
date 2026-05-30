@@ -37,6 +37,9 @@ openpyxl>=3.1.0           # Pandas Excel yazma motoru
 fpdf>=1.7.2               # Sonuçları PDF formatında raporlamak için
 # beautifulsoup4>=4.12.0    # Proje #1'de eklendi
 
+# --- Proje #11: Stok Takip Uygulaması ---
+# sqlite3, tkinter (Python standart kütüphanesidir, ekstra paket gerektirmez)
+
 # --- Proje #14: Basit Keylogger Yapımı (Eğitim Amaçlı) ---
 keyboard>=0.13.5          # Klavye olaylarını dinlemek için
 
