@@ -45,7 +45,7 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 8 | [**Link Kısaltma Uygulaması**](./08-Link-Kısaltma-Uygulaması) | TinyURL API ile uzun linkleri kısaltan ve kopyalayan araç | `requests`, `pyperclip`, `tkinter` | ✅ |
 | 9 | [**Bahis Analiz Uygulaması**](./09-Bahis-Analiz-Uygulaması) | Sporx üzerinden form decay ve Poisson modelleriyle Üst/Alt tahmini yapan GUI analiz aracı | `requests`, `beautifulsoup4`, `tkinter` | ✅ |
 | 10 | [**İnstagram Geri Takip Etmeyenler Uygulaması**](./10-Instagram-Geri-Takip-Etmeyenler-Uygulaması) | HTML takipçi/takip edilen verilerini karşılaştırarak geri takip etmeyenleri bulan araç | `pandas`, `beautifulsoup4`, `fpdf`, `tkinter` | ✅ |
-| 11 | [**Stok Takip Uygulaması**](./11-Stok-Takip-Uygulaması) | SQLite veritabanı destekli, ürün ekleme, silme, düzeltme ve arama özellikli GUI stok yönetim uygulaması | `sqlite3`, `tkinter` | 🔄 |
+| 11 | [**Stok Takip Uygulaması**](./11-Stok-Takip-Uygulaması) | SQLite veritabanı destekli, ürün ekleme, silme, düzeltme ve arama özellikli GUI stok yönetim uygulaması | `sqlite3`, `tkinter` | ✅ |
 | 12 | **İnstagram Etkileşim Saatini Analiz Eden Uygulama** | — | — | 📋 |
 | 13 | **Video Boyutu Hesaplama Uygulaması** | — | — | 📋 |
 | 14 | [**Basit Keylogger Yapımı (Eğitim Amaçlı)**](./14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)) | Klavyede basılan tuşları arka planda kaydederek log.txt dosyasına yazan eğitim amaçlı keylogger aracı | `keyboard` | ✅ |
@@ -246,6 +246,7 @@ SQLite veritabanı destekli, ürün ekleme, silme, düzeltme ve arama özellikli
 | Dosya | Açıklama |
 |-------|----------|
 | `stok_takip.py` | SQLite veritabanı kullanarak stok kaydı tutan ve arayüz üzerinden yöneten ana kod |
+| `stok_takip_Aciklamalari.ipynb` | SQLite veritabanı ve arayüz işlemlerinin çalışmasını ve kod yapısını anlatan eğitim notebook dosyası |
 
 **Öğrenilen Konular:**
 - SQLite veritabanı bağlantısı (`sqlite3`) ve SQL sorguları (SELECT, INSERT, UPDATE, DELETE)
@@ -441,8 +442,9 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 │
 ├── 📂 11-Stok-Takip-Uygulaması/
 │   ├── README.md                               # Proje açıklaması
-│   └── stok_takip.py                           # Stok takip uygulaması kodu
-|
+│   ├── stok_takip.py                           # Stok takip uygulaması kodu
+│   └── stok_takip_Aciklamalari.ipynb           # Notebook eğitim materyali
+│
 ├── 📂 14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)/
 │   ├── README.md                               # Proje açıklaması
 │   └── keylogger.py                            # Keylogger uygulaması kodu
