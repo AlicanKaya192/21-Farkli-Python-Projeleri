@@ -262,8 +262,10 @@ Belirtilen bir Instagram hesabının gönderilerini çekerek hangi gün, saat ve
 
 | Dosya | Açıklama |
 |-------|----------|
+| `README.md` | Proje açıklama ve dokümantasyon dosyası |
 | `instagram_etkileşim_saat.py` | Instagram gönderilerini çekip Excel'e yazan ve koşullu biçimlendirme uygulayan ana kod |
 | `instagram_etkileşim_saat_Aciklamalari.ipynb` | Projenin çalışma mantığını, API kullanımını ve Excel biçimlendirmesini anlatan eğitim notebook dosyası |
+| `public/` | Excel çıktısının ekran görüntüsünü barındıran görsel klasörü |
 
 **Öğrenilen Konular:**
 - `instaloader` ile Instagram oturum açma (`login`) ve profil gönderilerini çekme (`get_posts`)
@@ -466,8 +468,11 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 │   └── stok_takip_Aciklamalari.ipynb           # Notebook eğitim materyali
 │
 ├── 📂 12-Instagram-Etkileşim-Saatini-Analiz-Eden-Uygulama/
+│   ├── README.md                               # Proje açıklaması
 │   ├── instagram_etkileşim_saat.py              # Instagram etkileşim analiz kodu
-│   └── instagram_etkileşim_saat_Aciklamalari.ipynb # Notebook eğitim materyali
+│   ├── instagram_etkileşim_saat_Aciklamalari.ipynb # Notebook eğitim materyali
+│   └── 📂 public/                              # Görsel materyaller klasörü
+│       └── Ekran görüntüsü 2026-06-01 232604.png # Excel çıktısı ekran görüntüsü
 │
 ├── 📂 14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)/
 │   ├── README.md                               # Proje açıklaması
