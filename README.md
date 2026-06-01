@@ -46,7 +46,7 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 9 | [**Bahis Analiz Uygulaması**](./09-Bahis-Analiz-Uygulaması) | Sporx üzerinden form decay ve Poisson modelleriyle Üst/Alt tahmini yapan GUI analiz aracı | `requests`, `beautifulsoup4`, `tkinter` | ✅ |
 | 10 | [**İnstagram Geri Takip Etmeyenler Uygulaması**](./10-Instagram-Geri-Takip-Etmeyenler-Uygulaması) | HTML takipçi/takip edilen verilerini karşılaştırarak geri takip etmeyenleri bulan araç | `pandas`, `beautifulsoup4`, `fpdf`, `tkinter` | ✅ |
 | 11 | [**Stok Takip Uygulaması**](./11-Stok-Takip-Uygulaması) | SQLite veritabanı destekli, ürün ekleme, silme, düzeltme ve arama özellikli GUI stok yönetim uygulaması | `sqlite3`, `tkinter` | ✅ |
-| 12 | **İnstagram Etkileşim Saatini Analiz Eden Uygulama** | — | — | 📋 |
+| 12 | [**İnstagram Etkileşim Saatini Analiz Eden Uygulama**](./12-Instagram-Etkileşim-Saatini-Analiz-Eden-Uygulama) | Instagram gönderilerinin paylaşım gün/saat/ay analizini yapıp Excel'e raporlayan uygulama | `instaloader`, `pandas`, `openpyxl` | ✅ |
 | 13 | **Video Boyutu Hesaplama Uygulaması** | — | — | 📋 |
 | 14 | [**Basit Keylogger Yapımı (Eğitim Amaçlı)**](./14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)) | Klavyede basılan tuşları arka planda kaydederek log.txt dosyasına yazan eğitim amaçlı keylogger aracı | `keyboard` | ✅ |
 | 15 | **İnternetten Veri Çeken Bot Yazımı** | — | — | 📋 |
@@ -256,6 +256,25 @@ SQLite veritabanı destekli, ürün ekleme, silme, düzeltme ve arama özellikli
 
 ---
 
+### 📂 Proje #12 — İnstagram Etkileşim Saatini Analiz Eden Uygulama
+
+Belirtilen bir Instagram hesabının gönderilerini çekerek hangi gün, saat ve ayda paylaşım yapıldığını analiz eden, sonuçları Excel dosyasına yazıp koşullu biçimlendirme uygulayan uygulama:
+
+| Dosya | Açıklama |
+|-------|----------|
+| `instagram_etkileşim_saat.py` | Instagram gönderilerini çekip Excel'e yazan ve koşullu biçimlendirme uygulayan ana kod |
+| `instagram_etkileşim_saat_Aciklamalari.ipynb` | Projenin çalışma mantığını, API kullanımını ve Excel biçimlendirmesini anlatan eğitim notebook dosyası |
+
+**Öğrenilen Konular:**
+- `instaloader` ile Instagram oturum açma (`login`) ve profil gönderilerini çekme (`get_posts`)
+- `getpass` modülü ile şifrelerin terminalde gizli olarak alınması
+- `locale.setlocale()` ile tarih formatlamanın Türkçeye çevrilmesi (`strftime` ile gün/ay isimleri)
+- `pandas` DataFrame yapısına veri aktarma ve `to_excel()` ile Excel dosyası oluşturma
+- `openpyxl` ile Excel dosyalarında koşullu biçimlendirme (`PatternFill`) uygulama
+- `os.path` kullanarak script klasörüne göreceli dosya yolu oluşturma
+
+---
+
 ### 📂 Proje #14 — Basit Keylogger Yapımı (Eğitim Amaçlı)
 
 `keyboard` kütüphanesi kullanılarak geliştirilmiş, basit bir keylogger. Klavye girişlerini metin dosyasına kaydederek temel düzeyde klavye olaylarını dinleme mantığını açıklar.
@@ -372,9 +391,10 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 | `opencv-python` | Görüntü işleme ve yüz algılama | #5 |
 | `numpy` | Çok boyutlu dizi ve matris işlemleri | #5 |
 | `Pillow` | Görüntü işleme (Tkinter entegrasyonu) | #3, #5 |
-| `instaloader` | Instagram hesaplarından veri çekme | #6, #7 |
+| `instaloader` | Instagram hesaplarından veri çekme | #6, #7, #12 |
 | `pyperclip` | Panoya (clipboard) metin kopyalama | #8 |
-| `pandas` | Verileri Excel formatına aktarmak için | #10 |
+| `pandas` | Verileri Excel formatına aktarmak için | #10, #12 |
+| `openpyxl` | Excel dosyalarında okuma/yazma ve biçimlendirme | #10, #12 |
 | `fpdf` | PDF raporları oluşturmak için | #10 |
 | `keyboard` | Klavye olaylarını dinleme | #14 |
 
@@ -444,6 +464,10 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 │   ├── README.md                               # Proje açıklaması
 │   ├── stok_takip.py                           # Stok takip uygulaması kodu
 │   └── stok_takip_Aciklamalari.ipynb           # Notebook eğitim materyali
+│
+├── 📂 12-Instagram-Etkileşim-Saatini-Analiz-Eden-Uygulama/
+│   ├── instagram_etkileşim_saat.py              # Instagram etkileşim analiz kodu
+│   └── instagram_etkileşim_saat_Aciklamalari.ipynb # Notebook eğitim materyali
 │
 ├── 📂 14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)/
 │   ├── README.md                               # Proje açıklaması
