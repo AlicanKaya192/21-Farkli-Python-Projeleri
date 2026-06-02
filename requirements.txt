@@ -46,6 +46,9 @@ fpdf>=1.7.2               # Sonuçları PDF formatında raporlamak için
 # openpyxl>=3.1.0           # Proje #10'da eklendi
 # os, locale, getpass, datetime (Python standart kütüphanesidir)
 
+# --- Proje #13: Video Boyutu Hesaplama Uygulaması ---
+# tkinter (Python standart kütüphanesidir, ekstra paket gerektirmez)
+
 # --- Proje #14: Basit Keylogger Yapımı (Eğitim Amaçlı) ---
 keyboard>=0.13.5          # Klavye olaylarını dinlemek için
 

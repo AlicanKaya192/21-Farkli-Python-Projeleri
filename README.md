@@ -47,7 +47,7 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 10 | [**İnstagram Geri Takip Etmeyenler Uygulaması**](./10-Instagram-Geri-Takip-Etmeyenler-Uygulaması) | HTML takipçi/takip edilen verilerini karşılaştırarak geri takip etmeyenleri bulan araç | `pandas`, `beautifulsoup4`, `fpdf`, `tkinter` | ✅ |
 | 11 | [**Stok Takip Uygulaması**](./11-Stok-Takip-Uygulaması) | SQLite veritabanı destekli, ürün ekleme, silme, düzeltme ve arama özellikli GUI stok yönetim uygulaması | `sqlite3`, `tkinter` | ✅ |
 | 12 | [**İnstagram Etkileşim Saatini Analiz Eden Uygulama**](./12-Instagram-Etkileşim-Saatini-Analiz-Eden-Uygulama) | Instagram gönderilerinin paylaşım gün/saat/ay analizini yapıp Excel'e raporlayan uygulama | `instaloader`, `pandas`, `openpyxl` | ✅ |
-| 13 | **Video Boyutu Hesaplama Uygulaması** | — | — | 📋 |
+| 13 | [**Video Boyutu Hesaplama Uygulaması**](./13-Video-Boyutu-Hesaplama-Uygulaması) | Video çözünürlüğü ve süresine göre tahmini dosya boyutunu (MB) hesaplayan GUI uygulaması | `tkinter` | ✅ |
 | 14 | [**Basit Keylogger Yapımı (Eğitim Amaçlı)**](./14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)) | Klavyede basılan tuşları arka planda kaydederek log.txt dosyasına yazan eğitim amaçlı keylogger aracı | `keyboard` | ✅ |
 | 15 | **İnternetten Veri Çeken Bot Yazımı** | — | — | 📋 |
 | 16 | **İşletme Verilerini Çeken Bot** | — | — | 📋 |
@@ -277,6 +277,24 @@ Belirtilen bir Instagram hesabının gönderilerini çekerek hangi gün, saat ve
 
 ---
 
+### 📂 Proje #13 — Video Boyutu Hesaplama Uygulaması
+
+Kullanıcının seçtiği video çözünürlüğüne (360p, 480p, 720p, 1080p) ve dakika cinsinden girdiğü video süresine göre, video dosya boyutunu tahmini olarak Megabyte (MB) cinsinden hesaplayan Tkinter masaüstü uygulamasıdır.
+
+| Dosya | Açıklama |
+|-------|----------|
+| `README.md` | Proje açıklama ve dokümantasyon dosyası |
+| `video_veri_boyut_hesaplama.py` | Video dosya boyutunu hesaplayan Tkinter tabanlı ana Python kodu |
+| `video_veri_boyut_hesaplama_Aciklamalari.ipynb` | Hesaplama formülünü ve arayüz yapısını adım adım açıklayan Jupyter Notebook eğitim rehberi |
+
+**Öğrenilen Konular:**
+- Tkinter ile GUI tasarımı, stil yönetimi (`ttk.Style`) ve çözünürlük listeleme (`ttk.Combobox`)
+- Değişken takibi (`StringVar`) ve Entry kutularından veri girişi alma
+- Bitrate kavramı ve çözünürlüğe bağlı video veri boyutu hesaplama formülünün koda dökülmesi
+- Hatalı giriş durumlarında try-except blokları ve popup uyarı penceresi (`messagebox`) kullanımı
+
+---
+
 ### 📂 Proje #14 — Basit Keylogger Yapımı (Eğitim Amaçlı)
 
 `keyboard` kütüphanesi kullanılarak geliştirilmiş, basit bir keylogger. Klavye girişlerini metin dosyasına kaydederek temel düzeyde klavye olaylarını dinleme mantığını açıklar.
@@ -384,7 +402,7 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 |-----------|----------|----------|
 | `requests` | HTTP istekleri göndermek için | #1, #8, #9 |
 | `beautifulsoup4` | HTML/XML ayrıştırma | #1, #9, #10 |
-| `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3, #4, #5, #6, #7, #8, #9, #10, #11 |
+| `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #13 |
 | `sqlite3` | SQLite veritabanı işlemleri (built-in) | #11 |
 | `time` | Tarih/saat işlemleri (built-in) | #2 |
 | `pyqrcode` | QR kod oluşturma ve dışa aktarma | #3 |
@@ -473,6 +491,11 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 │   ├── instagram_etkileşim_saat_Aciklamalari.ipynb # Notebook eğitim materyali
 │   └── 📂 public/                              # Görsel materyaller klasörü
 │       └── Ekran görüntüsü 2026-06-01 232604.png # Excel çıktısı ekran görüntüsü
+│
+├── 📂 13-Video-Boyutu-Hesaplama-Uygulaması/
+│   ├── README.md                               # Proje açıklaması
+│   ├── video_veri_boyut_hesaplama.py           # Video veri boyutu hesaplama kodu
+│   └── video_veri_boyut_hesaplama_Aciklamalari.ipynb # Notebook eğitim materyali
 │
 ├── 📂 14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)/
 │   ├── README.md                               # Proje açıklaması
