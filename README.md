@@ -48,8 +48,8 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 11 | [**Stok Takip Uygulaması**](./11-Stok-Takip-Uygulaması) | SQLite veritabanı destekli, ürün ekleme, silme, düzeltme ve arama özellikli GUI stok yönetim uygulaması | `sqlite3`, `tkinter` | ✅ |
 | 12 | [**İnstagram Etkileşim Saatini Analiz Eden Uygulama**](./12-Instagram-Etkileşim-Saatini-Analiz-Eden-Uygulama) | Instagram gönderilerinin paylaşım gün/saat/ay analizini yapıp Excel'e raporlayan uygulama | `instaloader`, `pandas`, `openpyxl` | ✅ |
 | 13 | [**Video Boyutu Hesaplama Uygulaması**](./13-Video-Boyutu-Hesaplama-Uygulaması) | Video çözünürlüğü ve süresine göre tahmini dosya boyutunu (MB) hesaplayan GUI uygulaması | `tkinter` | ✅ |
-| 14 | [**Basit Keylogger Yapımı (Eğitim Amaçlı)**](./14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)) | Klavyede basılan tuşları arka planda kaydederek log.txt dosyasına yazan eğitim amaçlı keylogger aracı | `keyboard` | ✅ |
-| 15 | **İnternetten Veri Çeken Bot Yazımı** | — | — | 📋 |
+| 14 | [**Basit Keylogger Yapimi (Eğitim Amaçlı)**](./14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)) | Klavyede basılan tuşları arka planda kaydederek log.txt dosyasına yazan eğitim amaçlı keylogger aracı | `keyboard` | ✅ |
+| 15 | [**İnternetten Veri Çeken Bot Uygulaması**](./15-İnternetten-Veri-Çeken-Bot-Uygulaması) | Hürriyet Bigpara üzerinden canlı kurları çeken ve hesaplayan döviz botu | `requests`, `beautifulsoup4`, `tkinter` | ✅ |
 | 16 | **İşletme Verilerini Çeken Bot** | — | — | 📋 |
 | 17 | **Görüntülerden Arka Planı Silen Uygulama** | — | — | 📋 |
 | 18 | **Driver Bulucu ve Kontrol Edici** | — | — | 📋 |
@@ -310,6 +310,24 @@ Kullanıcının seçtiği video çözünürlüğüne (360p, 480p, 720p, 1080p) v
 - Temel dosya yazma işlemleri ve özel karakterlerin (space, enter) dosyaya kaydedilmesi
 
 > **⚠️ Yasal Uyarı:** Bu proje yalnızca **eğitim amaçlı** ve **yasal izinler çerçevesinde** kullanılmalıdır. Başkalarının izni olmadan bilgisayar sistemlerine keylogger kurmak ve kullanmak yasa dışıdır ve etik değildir.
+
+---
+
+### 📂 Proje #15 — İnternetten Veri Çeken Bot Uygulaması
+
+Hürriyet Bigpara finans portalı üzerinden canlı döviz kurlarını (Dolar, Euro, Altın vb.) BeautifulSoup4 ile çeken ve bu kurlarla dönüştürme işlemleri yapabilen modern arayüzlü bir döviz takip botudur.
+
+| Dosya | Açıklama |
+|-------|----------|
+| `internetden_veri_cekme.py` | Canlı döviz takip ve hesaplama botu ana kod dosyası. |
+| `internetden_veri_cekme_Aciklamalari.ipynb` | Projenin çalışma mantığını ve arayüz yapısını anlatan notebook dosyası. |
+
+**Öğrenilen Konular:**
+- `requests` ile User-Agent başlıkları ekleyerek web sitelerine HTTP istekleri gönderme ve engel aşma
+- `BeautifulSoup` ile HTML parse etme ve CSS sınıflarına/niteliklerine göre veri kazıma (web scraping)
+- `tkinter` ile modern arayüz tasarımı, `ttk.Treeview` ile verilerin çok sütunlu ve kaydırma çubuklu listelenmesi
+- `tkinter.Canvas` ile çizimler (grafik çizgileri) ve görsel zenginleştirme teknikleri
+- Alış ve satış kurlarını dikkate alarak dinamik döviz çevirme/hesaplama işlemleri
 
 ---
 
