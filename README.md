@@ -49,8 +49,8 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 12 | [**İnstagram Etkileşim Saatini Analiz Eden Uygulama**](./12-Instagram-Etkileşim-Saatini-Analiz-Eden-Uygulama) | Instagram gönderilerinin paylaşım gün/saat/ay analizini yapıp Excel'e raporlayan uygulama | `instaloader`, `pandas`, `openpyxl` | ✅ |
 | 13 | [**Video Boyutu Hesaplama Uygulaması**](./13-Video-Boyutu-Hesaplama-Uygulaması) | Video çözünürlüğü ve süresine göre tahmini dosya boyutunu (MB) hesaplayan GUI uygulaması | `tkinter` | ✅ |
 | 14 | [**Basit Keylogger Yapimi (Eğitim Amaçlı)**](./14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)) | Klavyede basılan tuşları arka planda kaydederek log.txt dosyasına yazan eğitim amaçlı keylogger aracı | `keyboard` | ✅ |
-| 15 | [**İnternetten Veri Çeken Bot Uygulaması**](./15-İnternetten-Veri-Çeken-Bot-Uygulaması) | Hürriyet Bigpara üzerinden canlı kurları çeken ve hesaplayan döviz botu | `requests`, `beautifulsoup4`, `tkinter` | ✅ |
-| 16 | **İşletme Verilerini Çeken Bot** | — | — | 📋 |
+| 15 | [**İnternetten Veri Çeken Bot Uygulaması**](./15-İnternetten-Veri-Çeken-Bot-Uygulaması) | Hürriyet Bigpara üzerinden canlı kurları çeken ve hesaplayan döviz botu | `requests`, `beautifulsoup4` | ✅ |
+| 16 | [**İşletme Verilerini Çeken Bot**](./16-İsletme-Verilerini-Ceken-Bot) | Google Haritalar üzerinden işletme verilerini (ad, adres, telefon) Selenium ile çeken, Excel'e kaydeden ve WhatsApp Web entegrasyonu sunan bot | `selenium`, `pandas`, `openpyxl`, `tkinter` | ✅ |
 | 17 | **Görüntülerden Arka Planı Silen Uygulama** | — | — | 📋 |
 | 18 | **Driver Bulucu ve Kontrol Edici** | — | — | 📋 |
 | 19 | [**Kripto Botu (BETA)**](./19-Kripto-Botu-(Beta)) | BtcTurk API'si ile çalışan, 5 dakikalık periyotlarda fiyat gözlemleyen ve otomatik alım-satım yapan GUI botu | `requests`, `tkinter` | ✅ |
@@ -331,6 +331,31 @@ Hürriyet Bigpara finans portalı üzerinden canlı döviz kurlarını (Dolar, E
 
 ---
 
+### 📂 Proje #16 — İşletme Verilerini Çeken Bot
+
+Google Haritalar üzerinden aratılan kelimeyle ilgili işletmelerin detaylı verilerini (ad, adres, telefon) Selenium ile otomatik olarak çeken, bunları Tkinter arayüzünde Treeview tablosunda listeleyen, tek tıkla Excel'e aktarabilen ve doğrudan WhatsApp Web üzerinden mesaj atma penceresini açabilen çoklu iş parçacıklı (threading) masaüstü bot uygulamasıdır. Ayrıca Selenium kütüphanesini derinlemesine inceleyen ek bir rehber notebook içerir.
+
+| Dosya | Açıklama |
+|-------|----------|
+| `isletme_verileri.py` | Thread-safe UI ve Edge/Chrome fallback destekli ana bot kodu |
+| `isletme_verileri_rehber.ipynb` | Projenin tüm kodlarını ve mantığını detaylı anlatan notebook |
+| `selenium_webdriver_rehber.ipynb` | Selenium 4'ü temelden ileri seviyeye öğreten kapsamlı eğitim rehberi |
+| `README.md` | Projeye ait özel dokümantasyon dosyası |
+| `public/` | Arayüz çıktısı ve tarayıcı ekran görüntülerini barındıran görsel klasörü |
+
+**Öğrenilen Konular:**
+- `selenium` WebDriver ile dinamik ve W3C uyumlu web tarayıcı otomasyonu
+- Google Haritalar'ın çerez onay (consent) sayfalarını iframe geçişleri ile otomatik aşma
+- Arama kutusu ve detay paneli için çoklu dinamik selector (fallback) sistemleri tasarlama
+- Google Haritalar sol paneli (feed) üzerinde `execute_script` ile asenkron akıllı kaydırma (infinite scroll)
+- `threading` kullanarak ana GUI arayüzünün donmasını engelleyen arka plan işlem döngüsü
+- `root.after()` kullanarak thread-safe şekilde arka plandan grafik arayüz elemanlarını güncelleme
+- `pandas` ve `openpyxl` kullanarak çekilen verileri yapılandırıp Excel dosyasına kaydetme
+- `re` (RegEx) kütüphanesi kullanarak düzensiz telefon numaralarını WhatsApp formatına (+90) dönüştürme
+- `webbrowser` modülü yardımıyla tek tıkla WhatsApp Web API entegrasyonu sağlama
+
+---
+
 ### 📂 Proje #19 — Kripto Botu (BETA)
 
 BtcTurk API'si kullanılarak geliştirilmiş, 5 dakikalık periyotlarda fiyat gözlemleyerek otomatik alım-satım yapan ve detaylı log panelleri barındıran masaüstü uygulaması:
@@ -418,9 +443,9 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 
 | Kütüphane | Açıklama | Projeler |
 |-----------|----------|----------|
-| `requests` | HTTP istekleri göndermek için | #1, #8, #9 |
-| `beautifulsoup4` | HTML/XML ayrıştırma | #1, #9, #10 |
-| `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #13 |
+| `requests` | HTTP istekleri göndermek için | #1, #8, #9, #15, #19, #21 |
+| `beautifulsoup4` | HTML/XML ayrıştırma | #1, #9, #10, #15 |
+| `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #13, #15, #16, #19, #21 |
 | `sqlite3` | SQLite veritabanı işlemleri (built-in) | #11 |
 | `time` | Tarih/saat işlemleri (built-in) | #2 |
 | `pyqrcode` | QR kod oluşturma ve dışa aktarma | #3 |
@@ -428,13 +453,15 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 | `gTTS` | Metni sese dönüştürme (Google TTS) | #4 |
 | `opencv-python` | Görüntü işleme ve yüz algılama | #5 |
 | `numpy` | Çok boyutlu dizi ve matris işlemleri | #5 |
-| `Pillow` | Görüntü işleme (Tkinter entegrasyonu) | #3, #5 |
+| `Pillow` | Görüntü işleme (Tkinter entegrasyonu) | #3, #5, #21 |
 | `instaloader` | Instagram hesaplarından veri çekme | #6, #7, #12 |
 | `pyperclip` | Panoya (clipboard) metin kopyalama | #8 |
-| `pandas` | Verileri Excel formatına aktarmak için | #10, #12 |
-| `openpyxl` | Excel dosyalarında okuma/yazma ve biçimlendirme | #10, #12 |
+| `pandas` | Verileri Excel formatına aktarmak için | #10, #12, #16 |
+| `openpyxl` | Excel dosyalarında okuma/yazma ve biçimlendirme | #10, #12, #16 |
 | `fpdf` | PDF raporları oluşturmak için | #10 |
 | `keyboard` | Klavye olaylarını dinleme | #14 |
+| `selenium` | Dinamik web tarayıcı otomasyonu ve web scraping | #16 |
+| `yt-dlp` | YouTube video ve ses indirme | #21 |
 
 ---
 
@@ -518,7 +545,22 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 ├── 📂 14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)/
 │   ├── README.md                               # Proje açıklaması
 │   └── keylogger.py                            # Keylogger uygulaması kodu
-|
+│
+├── 📂 15-İnternetten-Veri-Çeken-Bot-Uygulaması/
+│   ├── README.md                               # Proje açıklaması
+│   ├── internetden_veri_cekme.py               # Canlı döviz takip ve hesaplama botu
+│   └── internetden_veri_cekme_Aciklamalari.ipynb # Notebook eğitim materyali
+│
+├── 📂 16-İsletme-Verilerini-Ceken-Bot/
+│   ├── README.md                               # Proje açıklaması
+│   ├── isletme_verileri.py                     # Google Haritalar veri çeken bot kodu
+│   ├── isletme_verileri_rehber.ipynb           # Proje rehberi notebook dosyası
+│   ├── selenium_webdriver_rehber.ipynb         # Selenium eğitim rehberi notebook dosyası
+│   └── 📂 public/                              # Görsel materyaller klasörü
+│       ├── Ekran görüntüsü 2026-06-06 210542.png
+│       ├── google_maps_anasayfa.png
+│       └── google_maps_sonuclar.png
+│
 ├── 📂 19-Kripto-Botu-(Beta)/
 │   ├── README.md                               # Proje açıklaması
 │   ├── app.py                                  # Arayüz ve ana bot döngüsü
