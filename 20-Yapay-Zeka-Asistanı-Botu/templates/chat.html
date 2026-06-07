@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Alican Kaya Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f9fa;
+        }
+
+        .chat-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .message {
+            padding: 12px 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            max-width: 85%;
+        }
+
+        .Müşteri {
+            background-color: #e0f7fa;
+            text-align: right;
+            margin-left: auto;
+        }
+
+        .Alican-Kaya,
+        .Sistem {
+            background-color: #f1f1f1;
+            text-align: left;
+            margin-right: auto;
+        }
+
+        .Sistem {
+            background-color: #ffebee;
+            color: #c62828;
+            font-style: italic;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .sender {
+            font-weight: bold;
+            margin-bottom: 4px;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .text {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 1.4;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            font-size: 1em;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3498db;
+        }
+
+        input[type="submit"] {
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        /* Spinner için CSS */
+        #spinner {
+            display: none;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .loader {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f1f1f1; padding-bottom: 15px; margin-bottom: 20px;">
+            <h2 style="margin: 0; color: #2c3e50;">Alican Kaya Chat</h2>
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <a href="{{ url_for('clear_chat') }}" style="font-size: 0.9em; color: #7f8c8d; text-decoration: none; font-weight: bold;">Sohbeti Temizle</a>
+                {% if has_session_api_key %}
+                    <a href="{{ url_for('clear_api_key') }}" style="font-size: 0.9em; color: #e74c3c; text-decoration: none; font-weight: bold;">API Anahtarını Değiştir</a>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if needs_api_key %}
+        <div style="background-color: #fdfdfd; padding: 25px; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
+            <h3 style="margin-top: 0; color: #2c3e50;">Gemini API Anahtarı Gerekli</h3>
+            <p style="color: #4a5568; font-size: 0.95em; line-height: 1.5;">Uygulamayı kullanmak için geçerli bir Gemini API anahtarı girmelisiniz:</p>
+            <form id="api-key-form" method="post" action="{{ url_for('set_api_key') }}" style="display: block;">
+                <input type="password" name="api_key" placeholder="API Anahtarını girin (AIzaSy...)" required style="width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; margin-bottom: 15px; font-family: monospace; font-size: 1em;">
+                <input type="submit" value="Kaydet ve Sohbeti Başlat" style="background-color: #3498db; color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; font-size: 1em;">
+            </form>
+            <p style="font-size: 0.8em; color: #64748b; margin-top: 15px; line-height: 1.5;">
+                * API anahtarınız sunucu tarafındaki oturumda (session) geçici olarak saklanır. 
+                Dilerseniz anahtarı doğrudan kod içerisindeki <code>API_KEY_IN_CODE</code> değişkenine yazarak veya <code>GEMINI_API_KEY</code> ortam değişkeni üzerinden de tanımlayabilirsiniz.
+            </p>
+        </div>
+        {% else %}
+        <div id="chat-box" style="max-height: 450px; overflow-y: auto; padding-right: 5px;">
+            {% for entry in conversation %}
+            <div class="message {{ entry.sender|replace(' ', '-') }}">
+                <div class="sender">{{ entry.sender }}:</div>
+                <div class="text">{{ entry.message }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        <form id="chat-form" method="post" action="{{ url_for('chat') }}">
+            <input type="text" name="user_input" placeholder="Sorunuzu buraya yazın..." autofocus autocomplete="off"
+                required>
+            <input type="submit" value="Gönder">
+        </form>
+        <!-- Spinner / Bekleme Animasyonu -->
+        <div id="spinner">
+            <div class="loader"></div>
+            <span style="color: #7f8c8d; font-size: 0.9em;">Lütfen bekleyiniz...</span>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        const form = document.getElementById("chat-form");
+        const spinner = document.getElementById("spinner");
+
+        if (form) {
+            form.addEventListener("submit", function () {
+                spinner.style.display = "block";
+            });
+        }
+        
+        // Chat kutusunu en alta kaydır
+        const chatBox = document.getElementById("chat-box");
+        if (chatBox) {
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+</body>
+
+</html>

@@ -65,5 +65,9 @@ rembg[cpu]>=2.0.50         # Yapay zeka tabanlı arka plan temizleme (U2-Net + O
 wmi>=1.5.1                 # Windows Management Instrumentation — donanım/sistem bilgisi sorgulama
 # pywin32 (wmi bağımlılığı olarak otomatik yüklenir)
 
+# --- Proje #20: Yapay Zeka Asistanı Botu ---
+Flask>=3.0.0               # Web sunucusu ve oturum yönetimi için
+google-generativeai>=0.4.0 # Google Gemini API entegrasyonu için
+
 # --- Proje #21: YouTube Video İndirici ---
 yt-dlp>=2024.3.10          # YouTube videolarını ve seslerini indirmek için
