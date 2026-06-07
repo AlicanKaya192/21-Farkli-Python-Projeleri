@@ -62,7 +62,7 @@ selenium>=4.15.0           # Dinamik web tarayıcı otomasyonu ve web scraping i
 rembg[cpu]>=2.0.50         # Yapay zeka tabanlı arka plan temizleme (U2-Net + ONNX Runtime)
 
 # --- Proje #18: Driver Bulucu ve Kontrol Edici (Yalnızca Windows) ---
-wmi>=1.5.1                 # Windows Management Instrumentation — donanım/sistem bilgisi sorgulama
+wmi>=1.5.1; sys_platform == "win32" # Windows Management Instrumentation — donanım/sistem bilgisi sorgulama
 # pywin32 (wmi bağımlılığı olarak otomatik yüklenir)
 
 # --- Proje #20: Yapay Zeka Asistanı Botu ---
