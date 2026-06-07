@@ -51,7 +51,7 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 14 | [**Basit Keylogger Yapimi (Eğitim Amaçlı)**](./14-Basit-Keylogger-Yapimi-(Eğitim-Amacli)) | Klavyede basılan tuşları arka planda kaydederek log.txt dosyasına yazan eğitim amaçlı keylogger aracı | `keyboard` | ✅ |
 | 15 | [**İnternetten Veri Çeken Bot Uygulaması**](./15-İnternetten-Veri-Çeken-Bot-Uygulaması) | Hürriyet Bigpara üzerinden canlı kurları çeken ve hesaplayan döviz botu | `requests`, `beautifulsoup4` | ✅ |
 | 16 | [**İşletme Verilerini Çeken Bot**](./16-İsletme-Verilerini-Ceken-Bot) | Google Haritalar üzerinden işletme verilerini (ad, adres, telefon) Selenium ile çeken, Excel'e kaydeden ve WhatsApp Web entegrasyonu sunan bot | `selenium`, `pandas`, `openpyxl`, `tkinter` | ✅ |
-| 17 | **Görüntülerden Arka Planı Silen Uygulama** | — | — | 📋 |
+| 17 | [**Görüntülerden Arka Planı Silen Uygulama**](./17-Görüntülerden-Arka-Planı-Silen-Uygulama) | Görüntü seçip arka planını yapay zeka ile otomatik temizleyen GUI uygulaması | `rembg`, `pillow`, `onnxruntime`, `tkinter` | ✅ |
 | 18 | **Driver Bulucu ve Kontrol Edici** | — | — | 📋 |
 | 19 | [**Kripto Botu (BETA)**](./19-Kripto-Botu-(Beta)) | BtcTurk API'si ile çalışan, 5 dakikalık periyotlarda fiyat gözlemleyen ve otomatik alım-satım yapan GUI botu | `requests`, `tkinter` | ✅ |
 | 20 | **Yapay Zeka Asistan Botu Yazımı ve Mantığı** | — | — | 📋 |
@@ -356,6 +356,26 @@ Google Haritalar üzerinden aratılan kelimeyle ilgili işletmelerin detaylı ve
 
 ---
 
+### 📂 Proje #17 — Görüntülerden Arka Planı Silen Uygulama
+
+Görüntülerdeki arka planı derin öğrenme modelleri kullanarak otomatik temizleyen ve transparan (şeffaf) PNG formatında kaydeden masaüstü arayüzlü (GUI) uygulama:
+
+| Dosya | Açıklama |
+|-------|----------|
+| [**arka_plan_sil.py**](./17-Görüntülerden-Arka-Planı-Silen-Uygulama/arka_plan_sil.py) | Tkinter arayüzlü ve rembg/onnxruntime tabanlı arka plan temizleme uygulaması |
+| [**arka_plan_sil_Aciklamalari.ipynb**](./17-Görüntülerden-Arka-Planı-Silen-Uygulama/arka_plan_sil_Aciklamalari.ipynb) | Arka plan silme teorisi (SOD, Image Matting), U2-Net mimarisi, ONNX Runtime ve kod detaylarını açıklayan notebook dosyası |
+| [**README.md**](./17-Görüntülerden-Arka-Planı-Silen-Uygulama/README.md) | Proje özel açıklamaları ve ekran görüntüsü |
+| `public/` | Arayüz ekran görüntüsünü barındıran görsel klasörü |
+
+**Öğrenilen Konular:**
+- `rembg` ve U2-Net derin öğrenme modeli ile arka plan temizleme otomasyonu
+- ONNX Runtime motoru ile optimize edilmiş model çıkarımı (inference)
+- `isinstance` ile Python statik tip denetleyicileri (Pylance/Pyright) için tip güvenliği sağlama
+- İkili (binary) modda dosya okuma/yazma işlemleri (`open(..., 'rb')` ve `open(..., 'wb')`)
+- Standart Tkinter bileşenleri (`Label`, `Button`, `filedialog`, `messagebox`) ile arayüz tasarlama ve olay yönetimi (event handling)
+
+---
+
 ### 📂 Proje #19 — Kripto Botu (BETA)
 
 BtcTurk API'si kullanılarak geliştirilmiş, 5 dakikalık periyotlarda fiyat gözlemleyerek otomatik alım-satım yapan ve detaylı log panelleri barındıran masaüstü uygulaması:
@@ -445,7 +465,7 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 |-----------|----------|----------|
 | `requests` | HTTP istekleri göndermek için | #1, #8, #9, #15, #19, #21 |
 | `beautifulsoup4` | HTML/XML ayrıştırma | #1, #9, #10, #15 |
-| `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #13, #15, #16, #19, #21 |
+| `tkinter` | Masaüstü GUI oluşturma (built-in) | #2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #13, #15, #16, #17, #19, #21 |
 | `sqlite3` | SQLite veritabanı işlemleri (built-in) | #11 |
 | `time` | Tarih/saat işlemleri (built-in) | #2 |
 | `pyqrcode` | QR kod oluşturma ve dışa aktarma | #3 |
@@ -453,7 +473,7 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 | `gTTS` | Metni sese dönüştürme (Google TTS) | #4 |
 | `opencv-python` | Görüntü işleme ve yüz algılama | #5 |
 | `numpy` | Çok boyutlu dizi ve matris işlemleri | #5 |
-| `Pillow` | Görüntü işleme (Tkinter entegrasyonu) | #3, #5, #21 |
+| `Pillow` | Görüntü işleme (Tkinter entegrasyonu) | #3, #5, #17, #21 |
 | `instaloader` | Instagram hesaplarından veri çekme | #6, #7, #12 |
 | `pyperclip` | Panoya (clipboard) metin kopyalama | #8 |
 | `pandas` | Verileri Excel formatına aktarmak için | #10, #12, #16 |
@@ -462,6 +482,8 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 | `keyboard` | Klavye olaylarını dinleme | #14 |
 | `selenium` | Dinamik web tarayıcı otomasyonu ve web scraping | #16 |
 | `yt-dlp` | YouTube video ve ses indirme | #21 |
+| `rembg` | Yapay zeka tabanlı arka plan temizleme | #17 |
+| `onnxruntime` | Optimize edilmiş model çıkarımı motoru | #17 |
 
 ---
 
@@ -560,6 +582,13 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 │       ├── Ekran görüntüsü 2026-06-06 210542.png
 │       ├── google_maps_anasayfa.png
 │       └── google_maps_sonuclar.png
+│
+├── 📂 17-Görüntülerden-Arka-Planı-Silen-Uygulama/
+│   ├── README.md                               # Proje açıklaması
+│   ├── arka_plan_sil.py                        # Arka plan temizleme kodu
+│   ├── arka_plan_sil_Aciklamalari.ipynb        # Notebook eğitim rehberi
+│   └── 📂 public/                              # Görsel materyaller klasörü
+│       └── arka-plan-sil.png                   # Arayüz ekran görüntüsü
 │
 ├── 📂 19-Kripto-Botu-(Beta)/
 │   ├── README.md                               # Proje açıklaması
