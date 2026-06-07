@@ -55,5 +55,15 @@ keyboard>=0.13.5          # Klavye olaylarını dinlemek için
 # --- Proje #19: Kripto Botu (Beta) ---
 # requests>=2.31.0          # Proje #1'de eklendi
 
+# --- Proje #16: İşletme Verilerini Çeken Bot ---
+selenium>=4.15.0           # Dinamik web tarayıcı otomasyonu ve web scraping için
+
+# --- Proje #17: Görüntülerden Arka Planı Silen Uygulama ---
+rembg[cpu]>=2.0.50         # Yapay zeka tabanlı arka plan temizleme (U2-Net + ONNX Runtime)
+
+# --- Proje #18: Driver Bulucu ve Kontrol Edici (Yalnızca Windows) ---
+wmi>=1.5.1                 # Windows Management Instrumentation — donanım/sistem bilgisi sorgulama
+# pywin32 (wmi bağımlılığı olarak otomatik yüklenir)
+
 # --- Proje #21: YouTube Video İndirici ---
 yt-dlp>=2024.3.10          # YouTube videolarını ve seslerini indirmek için

@@ -52,7 +52,7 @@ Bu repo, Python programlama dilini **pratik yaparak öğrenmek** amacıyla oluş
 | 15 | [**İnternetten Veri Çeken Bot Uygulaması**](./15-İnternetten-Veri-Çeken-Bot-Uygulaması) | Hürriyet Bigpara üzerinden canlı kurları çeken ve hesaplayan döviz botu | `requests`, `beautifulsoup4` | ✅ |
 | 16 | [**İşletme Verilerini Çeken Bot**](./16-İsletme-Verilerini-Ceken-Bot) | Google Haritalar üzerinden işletme verilerini (ad, adres, telefon) Selenium ile çeken, Excel'e kaydeden ve WhatsApp Web entegrasyonu sunan bot | `selenium`, `pandas`, `openpyxl`, `tkinter` | ✅ |
 | 17 | [**Görüntülerden Arka Planı Silen Uygulama**](./17-Görüntülerden-Arka-Planı-Silen-Uygulama) | Görüntü seçip arka planını yapay zeka ile otomatik temizleyen GUI uygulaması | `rembg`, `pillow`, `onnxruntime`, `tkinter` | ✅ |
-| 18 | **Driver Bulucu ve Kontrol Edici** | — | — | 📋 |
+| 18 | [**Driver Bulucu ve Kontrol Edici**](./18-Driver-Bulucu-ve-Kontrol-Edici) | WMI ile tüm donanım sürücülerini tarayan, durumlarını renkli tabloda gösteren ve Google’da aratma özelliği sunan GUI aracı | `wmi`, `pywin32`, `tkinter` | ✅ |
 | 19 | [**Kripto Botu (BETA)**](./19-Kripto-Botu-(Beta)) | BtcTurk API'si ile çalışan, 5 dakikalık periyotlarda fiyat gözlemleyen ve otomatik alım-satım yapan GUI botu | `requests`, `tkinter` | ✅ |
 | 20 | **Yapay Zeka Asistan Botu Yazımı ve Mantığı** | — | — | 📋 |
 | 21 | [**YouTube Video İndirici**](./21-Youtube-Video-İndirici) | YouTube videolarını ve seslerini indirme | `yt-dlp`, `pillow`, `requests`, `tkinter` | ✅ |
@@ -376,6 +376,28 @@ Görüntülerdeki arka planı derin öğrenme modelleri kullanarak otomatik temi
 
 ---
 
+### 📂 Proje #18 — Driver Bulucu ve Kontrol Edici
+
+Windows işletim sistemindeki tüm donanım sürücülerini WMI (Windows Management Instrumentation) arayüzü üzerinden otomatik tarayan, durumlarını koşullu renklerle gösteren, arama yapabilen ve çift tıkla Google’da sürücü aratmayı sağlayan masaüstü aracı:
+
+| Dosya | Açıklama |
+|-------|----------|
+| [**driver_bul_kontrol_et.py**](./18-Driver-Bulucu-ve-Kontrol-Edici/driver_bul_kontrol_et.py) | WMI ve Tkinter Treeview tabanlı sürücü tarama ve görselleştirme uygulaması |
+| [**driver_bul_kontrol_et_Aciklamalari.ipynb**](./18-Driver-Bulucu-ve-Kontrol-Edici/driver_bul_kontrol_et_Aciklamalari.ipynb) | Projenin çalışma mantığı, WMI mimarisi, Treeview tag sistemi ve olay bağlama detaylarını açıklayan eğitim notebook’u |
+| [**wmi_rehber.ipynb**](./18-Driver-Bulucu-ve-Kontrol-Edici/wmi_rehber.ipynb) | WMI kütüphanesini CPU, RAM, GPU, disk, ağ, servisler, işlemler, kullanıcılar ve güvenlik konularında kapsamlı anlatan rehber |
+| [**README.md**](./18-Driver-Bulucu-ve-Kontrol-Edici/README.md) | Proje özel açıklamaları ve ekran görüntüsü |
+| `public/` | Arayüz ekran görüntüsünü barındıran görsel klasörü |
+
+**Öğrenilen Konular:**
+- WMI (Windows Management Instrumentation) ve COM arayüzü üzerinden donanım bilgilerine erişim
+- WQL (WMI Query Language) ile `Win32_PnPEntity` sorgusu oluşturma ve sürücü durumlarını okuma
+- `ttk.Treeview` ile çok sütunlu tablo oluşturma ve `tag_configure` ile koşullu renklendirme
+- `<KeyRelease>` ve `<Double-1>` olay bağlama (event binding) ile anlık arama ve tarayıcı entegrasyonu
+- `json.dump()` ile Türkçe uyumlu veri dışa aktarımı (`ensure_ascii=False`)
+- `webbrowser` modülü ile varsayılan tarayıcıda URL açma
+
+---
+
 ### 📂 Proje #19 — Kripto Botu (BETA)
 
 BtcTurk API'si kullanılarak geliştirilmiş, 5 dakikalık periyotlarda fiyat gözlemleyerek otomatik alım-satım yapan ve detaylı log panelleri barındıran masaüstü uygulaması:
@@ -484,6 +506,8 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 | `yt-dlp` | YouTube video ve ses indirme | #21 |
 | `rembg` | Yapay zeka tabanlı arka plan temizleme | #17 |
 | `onnxruntime` | Optimize edilmiş model çıkarımı motoru | #17 |
+| `wmi` | Windows Management Instrumentation — donanım/sistem bilgisi sorgulama | #18 |
+| `pywin32` | Windows COM arayüzü ile iletişim (wmi bağımlılığı) | #18 |
 
 ---
 
@@ -589,6 +613,14 @@ python "02-Dijital-Masaüstü-Saati/2.1_dijital_saat.py"
 │   ├── arka_plan_sil_Aciklamalari.ipynb        # Notebook eğitim rehberi
 │   └── 📂 public/                              # Görsel materyaller klasörü
 │       └── arka-plan-sil.png                   # Arayüz ekran görüntüsü
+│
+├── 📂 18-Driver-Bulucu-ve-Kontrol-Edici/
+│   ├── README.md                               # Proje açıklaması
+│   ├── driver_bul_kontrol_et.py                # Sürücü tarama ve görselleştirme kodu
+│   ├── driver_bul_kontrol_et_Aciklamalari.ipynb # Notebook eğitim rehberi
+│   ├── wmi_rehber.ipynb                        # WMI kapsamlı eğitim rehberi
+│   └── 📂 public/                              # Görsel materyaller klasörü
+│       └── Ekran görüntüsü 2026-06-07 191630.png  # Arayüz ekran görüntüsü
 │
 ├── 📂 19-Kripto-Botu-(Beta)/
 │   ├── README.md                               # Proje açıklaması
